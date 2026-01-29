@@ -1,0 +1,258 @@
+[
+  {
+    "names": ["Brominated Vegetable Oil", "BVO"],
+    "e_number": null,
+    "tier": "Auto-Fail",
+    "penalty": 0,
+    "category": "Auto-Fail",
+    "notes": "Not permitted / hard avoid (often imported drinks)."
+  },
+  {
+    "names": ["Partially hydrogenated oil"],
+    "e_number": null,
+    "tier": "Auto-Fail",
+    "penalty": 0,
+    "category": "Auto-Fail",
+    "notes": "Industrial trans fats; hard avoid."
+  },
+  {
+    "names": ["Carboxymethylcellulose", "CMC", "Cellulose gum"],
+    "e_number": "E466",
+    "tier": "High Concern",
+    "penalty": -25,
+    "category": "Gut & Microbiome Disruptors",
+    "notes": "Emulsifier/thickener; precautionary gut integrity/micro"
+  },
+  {
+    "names": ["Polysorbate 80"],
+    "e_number": "E433",
+    "tier": "High Concern",
+    "penalty": -25,
+    "category": "Gut & Microbiome Disruptors",
+    "notes": "Detergent-like emulsifier; microbiome disruption sign"
+  },
+  {
+    "names": ["Carrageenan"],
+    "e_number": "E407",
+    "tier": "High Concern",
+    "penalty": -25,
+    "category": "Gut & Microbiome Disruptors",
+    "notes": "Can trigger gut irritation in sensitive individuals."
+  },
+  {
+    "names": ["Tartrazine"],
+    "e_number": "E102",
+    "tier": "High Concern",
+    "penalty": -25,
+    "category": "Child Neurodevelopment & Behaviour",
+    "notes": "Southampton colour; hyperactivity risk signal in some"
+  },
+  {
+    "names": ["Quinoline Yellow"],
+    "e_number": "E104",
+    "tier": "High Concern",
+    "penalty": -25,
+    "category": "Child Neurodevelopment & Behaviour",
+    "notes": "Southampton colour; hyperactivity risk signal in some"
+  },
+  {
+    "names": ["Sunset Yellow FCF"],
+    "e_number": "E110",
+    "tier": "High Concern",
+    "penalty": -25,
+    "category": "Child Neurodevelopment & Behaviour",
+    "notes": "Southampton colour; hyperactivity risk signal in some"
+  },
+  {
+    "names": ["Carmoisine"],
+    "e_number": "E122",
+    "tier": "High Concern",
+    "penalty": -25,
+    "category": "Child Neurodevelopment & Behaviour",
+    "notes": "Southampton colour; hyperactivity risk signal in some"
+  },
+  {
+    "names": ["Ponceau 4R"],
+    "e_number": "E124",
+    "tier": "High Concern",
+    "penalty": -25,
+    "category": "Child Neurodevelopment & Behaviour",
+    "notes": "Southampton colour; hyperactivity risk signal in some"
+  },
+  {
+    "names": ["Allura Red AC"],
+    "e_number": "E129",
+    "tier": "High Concern",
+    "penalty": -25,
+    "category": "Child Neurodevelopment & Behaviour",
+    "notes": "Southampton colour; hyperactivity risk signal in some"
+  },
+  {
+    "names": ["Nitrites", "nitrates", "Sodium nitrite", "Potassium nitrate"],
+    "e_number": "E249-E252",
+    "tier": "High Concern",
+    "penalty": -25,
+    "category": "Cancer & Long-Term Risk Signals",
+    "notes": "Processed meat preservative; precautionary chronic"
+  },
+  {
+    "names": ["BHA", "Butylated hydroxyanisole"],
+    "e_number": "E320",
+    "tier": "High Concern",
+    "penalty": -25,
+    "category": "Cancer & Long-Term Risk Signals",
+    "notes": "Synthetic antioxidant; higher concern in precautionar"
+  },
+  {
+    "names": ["TBHQ", "Tertiary butylhydroquinone"],
+    "e_number": "E319",
+    "tier": "High Concern",
+    "penalty": -25,
+    "category": "Cancer & Long-Term Risk Signals",
+    "notes": "Synthetic antioxidant; higher concern in precautionar"
+  },
+  {
+    "names": ["Sodium benzoate"],
+    "e_number": "E211",
+    "tier": "Medium Concern",
+    "penalty": -10,
+    "category": "Preservative",
+    "notes": "Caution, especially with synthetic colours for children"
+  },
+  {
+    "names": ["Potassium sorbate"],
+    "e_number": "E202",
+    "tier": "Medium Concern",
+    "penalty": -10,
+    "category": "Preservative",
+    "notes": "Broad antimicrobial preservative; moderate concern."
+  },
+  {
+    "names": ["Sulphites", "sulphur dioxide", "metabisulphites"],
+    "e_number": "E220-E228",
+    "tier": "Medium Concern",
+    "penalty": -10,
+    "category": "Sensitivity",
+    "notes": "Sensitivity trigger for some (asthma/headache)."
+  },
+  {
+    "names": ["Aspartame"],
+    "e_number": "E951",
+    "tier": "Medium Concern",
+    "penalty": -10,
+    "category": "Sweetener",
+    "notes": "Artificial sweetener; avoid in PKU; child daily-food ca"
+  },
+  {
+    "names": ["Sucralose"],
+    "e_number": "E955",
+    "tier": "Medium Concern",
+    "penalty": -10,
+    "category": "Gut & Microbiome Disruptors",
+    "notes": "Artificial sweetener; gut and metabolic caution in som"
+  },
+  {
+    "names": ["Acesulfame K"],
+    "e_number": "E950",
+    "tier": "Medium Concern",
+    "penalty": -10,
+    "category": "Sweetener",
+    "notes": "Artificial sweetener; often used in blends."
+  },
+  {
+    "names": ["BHT", "Butylated hydroxytoluene"],
+    "e_number": "E321",
+    "tier": "Medium Concern",
+    "penalty": -10,
+    "category": "Cancer & Long-Term Risk Signals",
+    "notes": "Synthetic antioxidant; moderate concern marker."
+  },
+  {
+    "names": ["Maltodextrin"],
+    "e_number": null,
+    "tier": "Low Concern",
+    "penalty": -3,
+    "category": "Ultra-Processed Food Markers",
+    "notes": "Highly processed filler; transparency and glycaemic s"
+  },
+  {
+    "names": ["Modified starch"],
+    "e_number": null,
+    "tier": "Low Concern",
+    "penalty": -3,
+    "category": "Ultra-Processed Food Markers",
+    "notes": "Processing indicator; texture/holding agent."
+  },
+  {
+    "names": ["Flavouring", "Flavourings", "Natural flavouring", "Artificial flavouring"],
+    "e_number": null,
+    "tier": "Low Concern",
+    "penalty": -3,
+    "category": "Ultra-Processed Food Markers",
+    "notes": "Non-specific / transparency penalty."
+  },
+  {
+    "names": ["Glucose syrup", "Dextrose", "Invert sugar syrup"],
+    "e_number": null,
+    "tier": "Low Concern",
+    "penalty": -3,
+    "category": "Sugar marker",
+    "notes": "Refined sugar ingredient; frequent intake concern."
+  },
+  {
+    "names": ["Sweeteners"],
+    "e_number": null,
+    "tier": "Low Concern",
+    "penalty": -3,
+    "category": "Ultra-Processed Food Markers",
+    "notes": "If named sweeteners exist, score those directly; otherwise generic UPF."
+  },
+  {
+    "names": ["Citric acid"],
+    "e_number": "E330",
+    "tier": "No Penalty",
+    "penalty": 0,
+    "category": "Generally OK",
+    "notes": "Common acidity regulator/preservative."
+  },
+  {
+    "names": ["Ascorbic acid", "Vitamin C"],
+    "e_number": "E300",
+    "tier": "No Penalty",
+    "penalty": 0,
+    "category": "Generally OK",
+    "notes": "Antioxidant/preservative."
+  },
+  {
+    "names": ["Lecithin", "Soy lecithin", "Sunflower lecithin"],
+    "e_number": "E322",
+    "tier": "No Penalty",
+    "penalty": 0,
+    "category": "Generally OK",
+    "notes": "Mild emulsifier; generally acceptable."
+  },
+  {
+    "names": ["Guar gum"],
+    "e_number": "E412",
+    "tier": "No Penalty",
+    "penalty": 0,
+    "category": "Generally OK",
+    "notes": "Lower concern thickener."
+  },
+  {
+    "names": ["Xanthan gum"],
+    "e_number": "E415",
+    "tier": "No Penalty",
+    "penalty": 0,
+    "category": "Generally OK",
+    "notes": "Lower concern thickener; occasional sensitivity possi"
+  },
+  {
+    "names": ["Gellan gum"],
+    "e_number": "E418",
+    "tier": "No Penalty",
+    "penalty": 0,
+    "category": "Generally OK",
+    "notes": "Lower concern thickener; often replaces carrageenan"
+  }
+]
