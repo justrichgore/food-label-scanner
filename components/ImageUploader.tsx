@@ -53,29 +53,29 @@ export default function ImageUploader({ onImageSelect, isProcessing }: ImageUplo
                 onClick={triggerFileSelect}
             >
                 {/* Glow Effect behind the card */}
-                <div className="absolute -inset-1 bg-gradient-to-r from-violet-400 to-fuchsia-400 rounded-[2.5rem] blur opacity-25 group-hover:opacity-50 transition duration-500"></div>
+                <div className="absolute -inset-1 bg-gradient-to-r from-emerald-400 to-teal-400 rounded-[2.5rem] blur opacity-25 group-hover:opacity-50 transition duration-500"></div>
 
                 <div className={`
             relative rounded-[2rem] p-10 flex flex-col items-center justify-center text-center space-y-6
             h-80 bg-white/80 backdrop-blur-xl border border-white/60 shadow-xl
             transition-all duration-300
-            ${dragActive ? 'bg-white/90 border-violet-400' : 'hover:border-white/80'}
+            ${dragActive ? 'bg-white/90 border-emerald-400' : 'hover:border-white/80'}
             ${isProcessing ? 'cursor-wait' : ''}
         `}>
 
                     {isProcessing ? (
                         <div className="flex flex-col items-center animate-in fade-in zoom-in duration-500">
                             <div className="relative mb-6">
-                                <div className="absolute inset-0 bg-violet-400 blur-xl opacity-20 rounded-full"></div>
-                                <Loader2 className="w-16 h-16 text-violet-600 animate-spin relative z-10" />
+                                <div className="absolute inset-0 bg-emerald-400 blur-xl opacity-20 rounded-full"></div>
+                                <Loader2 className="w-16 h-16 text-emerald-600 animate-spin relative z-10" />
                             </div>
                             <p className="text-xl font-bold text-slate-800">Analyzing...</p>
                             <p className="text-sm text-slate-500">Decoding ingredients for you</p>
                         </div>
                     ) : (
                         <>
-                            <div className="w-24 h-24 bg-gradient-to-tr from-violet-100 to-fuchsia-50 rounded-full flex items-center justify-center mb-2 group-hover:rotate-6 transition-transform duration-500 shadow-inner">
-                                <Camera className="w-10 h-10 text-violet-600" />
+                            <div className="w-24 h-24 bg-gradient-to-tr from-emerald-100 to-teal-50 rounded-full flex items-center justify-center mb-2 group-hover:rotate-6 transition-transform duration-500 shadow-inner">
+                                <Camera className="w-10 h-10 text-emerald-600" />
                             </div>
                             <div>
                                 <h3 className="text-2xl font-bold text-slate-800">Scan Label</h3>
@@ -84,7 +84,7 @@ export default function ImageUploader({ onImageSelect, isProcessing }: ImageUplo
 
                             <div className="flex gap-3 mt-2">
                                 <span className="px-5 py-2.5 bg-white rounded-full text-sm font-bold text-slate-600 shadow-sm border border-slate-100 flex items-center gap-2 group-hover:shadow-md transition-all">
-                                    <ImageIcon className="w-4 h-4 text-violet-500" /> Choose
+                                    <ImageIcon className="w-4 h-4 text-emerald-500" /> Choose
                                 </span>
                             </div>
                         </>

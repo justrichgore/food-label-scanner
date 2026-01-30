@@ -50,7 +50,7 @@ export default function Home() {
             {/* Top Bar (Simple User Profile / Menu placeholder) */}
             <div className="flex justify-between items-center mb-8">
                 <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center text-white font-bold shadow-lg shadow-violet-200">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center text-white font-bold shadow-lg shadow-emerald-200">
                         <ShieldCheck className="w-6 h-6" />
                     </div>
                     <span className="font-semibold text-slate-700">LabelScanner AI</span>
@@ -67,7 +67,7 @@ export default function Home() {
                     <div className="space-y-6 text-center animate-in fade-in slide-in-from-bottom-4 duration-700">
                         <div className="inline-block">
                             <h1 className="text-4xl font-black text-slate-900 tracking-tight leading-tight">
-                                Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-fuchsia-600">Smart Assistant</span> for Safer Eating
+                                Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-teal-500">Smart Assistant</span> for Safer Eating
                             </h1>
                         </div>
 

@@ -82,9 +82,9 @@ export default function ScannerResults({ details, onReset }: ScannerResultsProps
                                     <div className="text-xs font-mono text-slate-400 mt-0.5">{risk.match} {risk.e_number ? `• ${risk.e_number}` : ''}</div>
                                 </div>
                                 <span className={`px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wide border ${risk.tier === 'Auto-Fail' ? 'bg-red-50 text-red-600 border-red-100' :
-                                        risk.tier === 'High Concern' ? 'bg-orange-50 text-orange-600 border-orange-100' :
-                                            risk.tier === 'Medium Concern' ? 'bg-amber-50 text-amber-600 border-amber-100' :
-                                                'bg-yellow-50 text-yellow-600 border-yellow-100'
+                                    risk.tier === 'High Concern' ? 'bg-orange-50 text-orange-600 border-orange-100' :
+                                        risk.tier === 'Medium Concern' ? 'bg-amber-50 text-amber-600 border-amber-100' :
+                                            'bg-yellow-50 text-yellow-600 border-yellow-100'
                                     }`}>
                                     {risk.penalty} pts
                                 </span>
@@ -103,7 +103,7 @@ export default function ScannerResults({ details, onReset }: ScannerResultsProps
 
             <button
                 onClick={onReset}
-                className="w-full py-4 rounded-2xl primary-gradient font-bold text-lg text-white shadow-lg shadow-violet-200 hover:shadow-xl hover:shadow-violet-300 transition-all active:scale-[0.98]"
+                className="w-full py-4 rounded-2xl primary-gradient font-bold text-lg text-white shadow-lg shadow-emerald-200 hover:shadow-xl hover:shadow-emerald-300 transition-all active:scale-[0.98]"
             >
                 Scan Another Label
             </button>
