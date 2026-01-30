@@ -28,26 +28,31 @@ export default function ScannerResults({ details, onReset }: ScannerResultsProps
         <div className="w-full max-w-2xl mx-auto space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
 
             {/* Score Card */}
-            <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
-                <div className={`${gradeBg} p-8 text-center`}>
-                    <div className="text-sm font-semibold uppercase tracking-wider text-gray-500 mb-2">Food Safety Grade</div>
-                    <div className={`text-9xl font-black ${gradeColor} leading-none`}>{grade}</div>
-                    <div className="mt-4 text-2xl font-bold text-gray-800">Score: {score}/100</div>
+            <div className="glass-card rounded-[2rem] overflow-hidden relative">
+                <div className={`absolute top-0 left-0 w-full h-2 ${grade === 'A' ? 'bg-green-500' : grade === 'B' ? 'bg-lime-500' : grade === 'C' ? 'bg-yellow-500' : 'bg-red-500'}`}></div>
+                <div className="p-8 text-center relative z-10">
+                    <div className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-4">Food Safety Score</div>
+                    <div className="flex items-center justify-center gap-6">
+                        <div className={`text-8xl font-black ${gradeColor} drop-shadow-sm`}>{grade}</div>
+                        <div className="text-left">
+                            <div className="text-3xl font-bold text-slate-800">{score}</div>
+                            <div className="text-sm text-slate-400 font-medium">out of 100</div>
+                        </div>
+                    </div>
                 </div>
 
-                {/* Statistics / Communalities */}
-                <div className="p-6 bg-white">
-                    <h3 className="text-lg font-bold text-gray-900 mb-4">Risk Category Breakdown</h3>
-                    <div className="grid grid-cols-2 gap-4">
+                {/* Statistics */}
+                <div className="px-6 py-4 bg-white/40 border-t border-white/60">
+                    <div className="grid grid-cols-2 gap-3">
                         {Object.entries(categoryBreakdown).length > 0 ? (
                             Object.entries(categoryBreakdown).map(([category, count]) => (
-                                <div key={category} className="bg-gray-50 p-4 rounded-xl border border-gray-100">
-                                    <div className="text-2xl font-bold text-gray-900">{count}</div>
-                                    <div className="text-xs text-gray-500 uppercase font-semibold">{category}</div>
+                                <div key={category} className="bg-white/50 px-4 py-2 rounded-xl flex items-center justify-between border border-white/40">
+                                    <span className="text-xs text-slate-500 font-semibold uppercase truncate mr-2">{category}</span>
+                                    <span className="text-lg font-bold text-slate-800">{count}</span>
                                 </div>
                             ))
                         ) : (
-                            <div className="col-span-2 text-center text-gray-500 italic">No flagged ingredients found.</div>
+                            <div className="col-span-2 text-center text-slate-400 text-sm py-2">No main risks detected.</div>
                         )}
                     </div>
                 </div>
@@ -55,35 +60,40 @@ export default function ScannerResults({ details, onReset }: ScannerResultsProps
 
             {/* Ingredient Details */}
             <div className="space-y-4">
-                <h3 className="text-xl font-bold text-gray-900 px-2">Analyzed Ingredients</h3>
+                <h3 className="text-lg font-bold text-slate-800 px-4 flex items-center gap-2">
+                    Analysis Report
+                    <span className="bg-slate-100 text-slate-500 text-xs px-2 py-1 rounded-full">{risks.length} Items</span>
+                </h3>
 
                 {risks.length === 0 ? (
-                    <div className="bg-green-50 p-6 rounded-2xl flex items-center justify-center text-green-800 border border-green-100">
-                        <CheckCircle className="w-6 h-6 mr-2" />
-                        <span>No harmful ingredients detected!</span>
+                    <div className="glass-card p-8 rounded-2xl flex flex-col items-center justify-center text-center">
+                        <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4 text-green-600">
+                            <CheckCircle className="w-8 h-8" />
+                        </div>
+                        <h4 className="text-xl font-bold text-slate-800">Clean Label!</h4>
+                        <p className="text-slate-500 mt-2 text-sm">No risky ingredients found in this scan.</p>
                     </div>
                 ) : (
                     risks.map((risk, idx) => (
-                        <div key={idx} className="bg-white p-5 rounded-2xl shadow-sm border border-gray-100 flex flex-col gap-2">
+                        <div key={idx} className="bg-white/80 backdrop-blur-md p-5 rounded-2xl shadow-sm border border-white/60 flex flex-col gap-3 transition-transform hover:scale-[1.01]">
                             <div className="flex justify-between items-start">
                                 <div>
-                                    <h4 className="font-bold text-lg text-gray-900 capitalize">{risk.name}</h4>
-                                    <div className="text-xs font-mono text-gray-400">{risk.match} {risk.e_number ? `(${risk.e_number})` : ''}</div>
+                                    <h4 className="font-bold text-base text-slate-900 capitalize">{risk.name}</h4>
+                                    <div className="text-xs font-mono text-slate-400 mt-0.5">{risk.match} {risk.e_number ? `• ${risk.e_number}` : ''}</div>
                                 </div>
-                                <span className={`px-3 py-1 rounded-full text-xs font-bold ${risk.tier === 'Auto-Fail' ? 'bg-red-900 text-white' :
-                                        risk.tier === 'High Concern' ? 'bg-red-100 text-red-800' :
-                                            risk.tier === 'Medium Concern' ? 'bg-orange-100 text-orange-800' :
-                                                risk.tier === 'Low Concern' ? 'bg-yellow-100 text-yellow-800' :
-                                                    'bg-gray-100 text-gray-800'
+                                <span className={`px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wide border ${risk.tier === 'Auto-Fail' ? 'bg-red-50 text-red-600 border-red-100' :
+                                        risk.tier === 'High Concern' ? 'bg-orange-50 text-orange-600 border-orange-100' :
+                                            risk.tier === 'Medium Concern' ? 'bg-amber-50 text-amber-600 border-amber-100' :
+                                                'bg-yellow-50 text-yellow-600 border-yellow-100'
                                     }`}>
                                     {risk.penalty} pts
                                 </span>
                             </div>
 
-                            <div className="flex items-start gap-2 mt-1">
+                            <div className="flex items-start gap-3 bg-slate-50/50 p-3 rounded-xl">
                                 <AlertTriangle className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
-                                <p className="text-sm text-gray-600">
-                                    <span className="font-semibold text-gray-800">{risk.category}:</span> {risk.notes}
+                                <p className="text-sm text-slate-600 leading-relaxed">
+                                    <span className="font-semibold text-slate-800">{risk.category}:</span> {risk.notes}
                                 </p>
                             </div>
                         </div>
@@ -93,7 +103,7 @@ export default function ScannerResults({ details, onReset }: ScannerResultsProps
 
             <button
                 onClick={onReset}
-                className="w-full py-4 rounded-2xl bg-gray-900 text-white font-bold text-lg hover:bg-black transition-all active:scale-95 shadow-lg"
+                className="w-full py-4 rounded-2xl primary-gradient font-bold text-lg text-white shadow-lg shadow-violet-200 hover:shadow-xl hover:shadow-violet-300 transition-all active:scale-[0.98]"
             >
                 Scan Another Label
             </button>

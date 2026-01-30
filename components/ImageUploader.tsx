@@ -43,8 +43,8 @@ export default function ImageUploader({ onImageSelect, isProcessing }: ImageUplo
     return (
         <div className="w-full max-w-md mx-auto">
             <div
-                className={`relative group cursor-pointer transition-all duration-300 ease-in-out
-            ${dragActive ? 'scale-105' : 'scale-100'}
+                className={`relative group cursor-pointer transition-all duration-500 ease-out
+            ${dragActive ? 'scale-[1.02]' : 'hover:scale-[1.01]'}
         `}
                 onDragEnter={handleDrag}
                 onDragLeave={handleDrag}
@@ -52,34 +52,39 @@ export default function ImageUploader({ onImageSelect, isProcessing }: ImageUplo
                 onDrop={handleDrop}
                 onClick={triggerFileSelect}
             >
+                {/* Glow Effect behind the card */}
+                <div className="absolute -inset-1 bg-gradient-to-r from-violet-400 to-fuchsia-400 rounded-[2.5rem] blur opacity-25 group-hover:opacity-50 transition duration-500"></div>
+
                 <div className={`
-            border-4 border-dashed rounded-3xl p-10 flex flex-col items-center justify-center text-center space-y-4
-            h-80 bg-white shadow-sm hover:shadow-md transition-all
-            ${dragActive ? 'border-blue-500 bg-blue-50' : 'border-gray-200'}
-            ${isProcessing ? 'opacity-50 pointer-events-none' : ''}
+            relative rounded-[2rem] p-10 flex flex-col items-center justify-center text-center space-y-6
+            h-80 bg-white/80 backdrop-blur-xl border border-white/60 shadow-xl
+            transition-all duration-300
+            ${dragActive ? 'bg-white/90 border-violet-400' : 'hover:border-white/80'}
+            ${isProcessing ? 'cursor-wait' : ''}
         `}>
 
                     {isProcessing ? (
-                        <>
-                            <Loader2 className="w-16 h-16 text-blue-600 animate-spin" />
-                            <p className="text-xl font-bold text-gray-600">Scanning ingredients...</p>
-                            <p className="text-sm text-gray-400">Extracting text & analyzing risks</p>
-                        </>
+                        <div className="flex flex-col items-center animate-in fade-in zoom-in duration-500">
+                            <div className="relative mb-6">
+                                <div className="absolute inset-0 bg-violet-400 blur-xl opacity-20 rounded-full"></div>
+                                <Loader2 className="w-16 h-16 text-violet-600 animate-spin relative z-10" />
+                            </div>
+                            <p className="text-xl font-bold text-slate-800">Analyzing...</p>
+                            <p className="text-sm text-slate-500">Decoding ingredients for you</p>
+                        </div>
                     ) : (
                         <>
-                            <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
-                                <Camera className="w-10 h-10 text-blue-600" />
+                            <div className="w-24 h-24 bg-gradient-to-tr from-violet-100 to-fuchsia-50 rounded-full flex items-center justify-center mb-2 group-hover:rotate-6 transition-transform duration-500 shadow-inner">
+                                <Camera className="w-10 h-10 text-violet-600" />
                             </div>
                             <div>
-                                <h3 className="text-2xl font-bold text-gray-900">Scan Food Label</h3>
-                                <p className="text-gray-500 mt-2">Take a photo or upload an image of the ingredients list.</p>
+                                <h3 className="text-2xl font-bold text-slate-800">Scan Label</h3>
+                                <p className="text-slate-500 mt-2 text-sm max-w-[200px] mx-auto">Tap to take a photo or drag & drop an image</p>
                             </div>
-                            <div className="flex gap-4 mt-4">
-                                <span className="px-4 py-2 bg-gray-100 rounded-full text-sm font-semibold text-gray-600 flex items-center gap-2">
-                                    <ImageIcon className="w-4 h-4" /> Upload
-                                </span>
-                                <span className="px-4 py-2 bg-gray-100 rounded-full text-sm font-semibold text-gray-600 flex items-center gap-2">
-                                    <Camera className="w-4 h-4" /> Camera
+
+                            <div className="flex gap-3 mt-2">
+                                <span className="px-5 py-2.5 bg-white rounded-full text-sm font-bold text-slate-600 shadow-sm border border-slate-100 flex items-center gap-2 group-hover:shadow-md transition-all">
+                                    <ImageIcon className="w-4 h-4 text-violet-500" /> Choose
                                 </span>
                             </div>
                         </>
@@ -91,7 +96,6 @@ export default function ImageUploader({ onImageSelect, isProcessing }: ImageUplo
                         className="hidden"
                         accept="image/*"
                         onChange={handleChange}
-                        capture="environment" // Hints mobile browsers to use the camera
                     />
                 </div>
             </div>

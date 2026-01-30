@@ -46,35 +46,44 @@ export default function Home() {
     }, [frequency, extractedText]);
 
     return (
-        <main className="min-h-screen bg-gray-50 pb-20">
-            {/* Header */}
-            <header className="bg-white border-b border-gray-100 sticky top-0 z-10">
-                <div className="max-w-md mx-auto px-6 py-4 flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                        <div className="bg-black text-white p-2 rounded-lg">
-                            <ShieldCheck className="w-6 h-6" />
-                        </div>
-                        <h1 className="text-xl font-bold tracking-tight text-gray-900">LabelScanner</h1>
+        <main className="min-h-screen pb-20 px-6 pt-12 max-w-md mx-auto relative z-10">
+            {/* Top Bar (Simple User Profile / Menu placeholder) */}
+            <div className="flex justify-between items-center mb-8">
+                <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center text-white font-bold shadow-lg shadow-violet-200">
+                        <ShieldCheck className="w-6 h-6" />
                     </div>
-                    <button className="text-gray-400 hover:text-gray-600">
-                        <Info className="w-6 h-6" />
-                    </button>
+                    <span className="font-semibold text-slate-700">LabelScanner AI</span>
                 </div>
-            </header>
+                <button className="w-10 h-10 rounded-full bg-white/50 backdrop-blur border border-white/60 flex items-center justify-center text-slate-500 hover:bg-white transition-colors">
+                    <Info className="w-5 h-5" />
+                </button>
+            </div>
 
-            <div className="max-w-md mx-auto px-6 pt-8">
+            <div className="space-y-8">
 
+                {/* Greeting / Intro */}
                 {!scoreDetails && !isProcessing && (
-                    <div className="mb-8 text-center animate-in fade-in slide-in-from-bottom-2 duration-700">
-                        <h2 className="text-3xl font-extrabold text-gray-900 mb-2">Check Your Food</h2>
-                        <p className="text-gray-500 text-lg">Scan ingredients to instantly expose hidden health risks and additives.</p>
+                    <div className="space-y-6 text-center animate-in fade-in slide-in-from-bottom-4 duration-700">
+                        <div className="inline-block">
+                            <h1 className="text-4xl font-black text-slate-900 tracking-tight leading-tight">
+                                Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-fuchsia-600">Smart Assistant</span> for Safer Eating
+                            </h1>
+                        </div>
+
+                        {/* Chat Bubble Effect */}
+                        <div className="relative inline-block mx-auto">
+                            <div className="glass-card px-6 py-4 rounded-2xl rounded-bl-sm text-left max-w-xs mx-auto transform transition-transform hover:-translate-y-1 duration-300">
+                                <p className="text-slate-600 font-medium">Hello! 👋</p>
+                                <p className="text-slate-500 text-sm mt-1">Scan an ingredient label, and I'll analyze it for hidden health risks instantly.</p>
+                            </div>
+                        </div>
                     </div>
                 )}
 
-                {/* Main Content Area */}
-                <div className="space-y-8">
-
-                    {/* Uploader (only show if no results yet) */}
+                {/* Main Action Area */}
+                <div className="relative">
+                    {/* Uploader */}
                     {!scoreDetails && (
                         <ImageUploader onImageSelect={handleImageSelect} isProcessing={isProcessing} />
                     )}
@@ -82,18 +91,17 @@ export default function Home() {
                     {/* Results View */}
                     {scoreDetails && (
                         <div className="space-y-6">
-
-                            {/* Frequency Settings */}
-                            <div className="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 flex items-center justify-between">
-                                <span className="font-semibold text-gray-700">Consumption:</span>
-                                <div className="flex gap-1 bg-gray-100 p-1 rounded-lg">
+                            {/* Frequency Settings Pill */}
+                            <div className="glass-card p-2 rounded-full flex items-center justify-between pl-6 pr-2">
+                                <span className="text-sm font-semibold text-slate-600">Consumption:</span>
+                                <div className="flex gap-1">
                                     {(['Daily', 'Weekly', 'Rare'] as Frequency[]).map((freq) => (
                                         <button
                                             key={freq}
                                             onClick={() => setFrequency(freq)}
-                                            className={`px-3 py-1.5 rounded-md text-sm font-medium transition-all ${frequency === freq
-                                                    ? 'bg-white text-black shadow-sm'
-                                                    : 'text-gray-500 hover:text-gray-700'
+                                            className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${frequency === freq
+                                                ? 'bg-slate-900 text-white shadow-md'
+                                                : 'text-slate-500 hover:text-slate-900 hover:bg-white/50'
                                                 }`}
                                         >
                                             {freq}
@@ -104,10 +112,10 @@ export default function Home() {
 
                             <ScannerResults details={scoreDetails} onReset={handleReset} />
 
-                            {/* Debug Text (Optional, good for verifying OCR quality) */}
-                            <details className="text-xs text-gray-400 mt-8">
-                                <summary className="cursor-pointer mb-2">View Extracted Text</summary>
-                                <p className="p-4 bg-gray-100 rounded-xl whitespace-pre-wrap font-mono">
+                            {/* Debug Text */}
+                            <details className="text-xs text-slate-400 mt-8 text-center">
+                                <summary className="cursor-pointer mb-2 hover:text-slate-600 transition-colors">View Extracted Text</summary>
+                                <p className="p-4 bg-white/50 rounded-2xl border border-white/60 whitespace-pre-wrap font-mono text-left">
                                     {extractedText}
                                 </p>
                             </details>
