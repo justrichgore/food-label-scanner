@@ -42,26 +42,30 @@ async function preprocessImage(file: File): Promise<string> {
             const imageData = ctx.getImageData(0, 0, width, height);
             const data = imageData.data;
 
-            // 2. Grayscale & Binarization (Thresholding)
-            // Iterate pixels (R, G, B, A)
+            // 2. Max-Channel Grayscale & Contrast
+            // Problem: Standard grayscale (0.21 R + 0.72 G + 0.07 B) makes Red (255,0,0) very dark (~76).
+            // Solution: Use Math.max(r, g, b) which treats strong Red as Bright (255).
             for (let i = 0; i < data.length; i += 4) {
                 const r = data[i];
                 const g = data[i + 1];
                 const b = data[i + 2];
 
-                // Luminosity formula for grayscale
-                const gray = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+                // Use the brightest channel to preserve colored backgrounds as "Light"
+                let val = Math.max(r, g, b);
 
-                // Simple Binarization (Thresholding)
-                // If lighter than threshold, make white. Else make black.
-                // Threshold of 128 is standard, maybe 140 for slightly better background removal on labels?
-                const threshold = 145; // Tuned slightly higher to wash out shadows
+                // 3. Contrast Boost
+                // Simple linear contrast: factor * (val - 128) + 128
+                const contrastFactor = 1.2;
+                val = contrastFactor * (val - 128) + 128;
 
-                const val = gray > threshold ? 255 : 0;
+                // 4. Binarization
+                // Threshold
+                const threshold = 140;
+                const bin = val > threshold ? 255 : 0;
 
-                data[i] = val;
-                data[i + 1] = val;
-                data[i + 2] = val;
+                data[i] = bin;
+                data[i + 1] = bin;
+                data[i + 2] = bin;
             }
 
             // Put data back
