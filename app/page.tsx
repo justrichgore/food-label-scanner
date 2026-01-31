@@ -4,8 +4,9 @@ import { useState, useEffect } from 'react';
 import ImageUploader from '@/components/ImageUploader';
 import ScannerResults from '@/components/ScannerResults';
 import { processImage } from '@/utils/ocr';
+import Navbar from '@/components/Navbar';
 import { calculateScore, ScoreDetails, Frequency } from '@/utils/scoring';
-import { ShieldCheck, Info } from 'lucide-react';
+import { saveScan } from '@/utils/supabase';
 
 export default function Home() {
     const [isProcessing, setIsProcessing] = useState(false);
@@ -23,6 +24,7 @@ export default function Home() {
             // Determine initial score
             const results = calculateScore(text, frequency);
             setScoreDetails(results);
+            await saveScan(text, results, frequency);
         } catch (error) {
             console.error(error);
             alert('Failed to process image. Please try again.');
@@ -47,18 +49,7 @@ export default function Home() {
 
     return (
         <main className="min-h-screen pb-20 px-6 pt-12 max-w-md mx-auto relative z-10">
-            {/* Top Bar (Simple User Profile / Menu placeholder) */}
-            <div className="flex justify-between items-center mb-8">
-                <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center text-white font-bold shadow-lg shadow-emerald-200">
-                        <ShieldCheck className="w-6 h-6" />
-                    </div>
-                    <span className="font-semibold text-slate-700">LabelScanner AI</span>
-                </div>
-                <button className="w-10 h-10 rounded-full bg-white/50 backdrop-blur border border-white/60 flex items-center justify-center text-slate-500 hover:bg-white transition-colors">
-                    <Info className="w-5 h-5" />
-                </button>
-            </div>
+            <Navbar />
 
             <div className="space-y-8">
 
@@ -75,7 +66,7 @@ export default function Home() {
                         <div className="relative inline-block mx-auto">
                             <div className="glass-card px-6 py-4 rounded-2xl rounded-bl-sm text-left max-w-xs mx-auto transform transition-transform hover:-translate-y-1 duration-300">
                                 <p className="text-slate-600 font-medium">Hello! 👋</p>
-                                <p className="text-slate-500 text-sm mt-1">Scan an ingredient label, and I'll analyze it for hidden health risks instantly.</p>
+                                <p className="text-slate-500 text-sm mt-1">Scan an ingredient label, and I&apos;ll analyze it for hidden health risks instantly.</p>
                             </div>
                         </div>
                     </div>
