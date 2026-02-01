@@ -33,6 +33,8 @@ export default function ImageUploader({ onImageSelect, isProcessing }: ImageUplo
         e.preventDefault();
         if (e.target.files && e.target.files[0]) {
             onImageSelect(e.target.files[0]);
+            // Reset value to allow selecting the same file again (e.g., after an error)
+            e.target.value = '';
         }
     };
 

@@ -6,30 +6,53 @@ import ScannerResults from '@/components/ScannerResults';
 import { performOCR } from '@/app/actions/ocr';
 import Navbar from '@/components/Navbar';
 import { calculateScore, ScoreDetails, Frequency } from '@/utils/scoring';
-import { saveScan } from '@/utils/supabase';
+import { saveScan } from '@/utils/supabase-legacy';
 
 export default function Home() {
     const [isProcessing, setIsProcessing] = useState(false);
     const [extractedText, setExtractedText] = useState<string | null>(null);
-    const [scoreDetails, setScoreDetails] = useState<ScoreDetails | null>(null);
+    const [scoreData, setScoreData] = useState<ScoreDetails | null>(null);
     const [frequency, setFrequency] = useState<Frequency>('Weekly');
+    const [productName, setProductName] = useState('');
 
     const handleImageSelect = async (file: File) => {
+        if (!productName.trim()) {
+            alert('Please enter a product name before scanning.');
+            return;
+        }
+
         setIsProcessing(true);
-        setScoreDetails(null);
         setExtractedText(null);
+        setScoreData(null);
         try {
+            // 1. Upload/Process Image (Server-Side)
             const formData = new FormData();
             formData.append('file', file);
+
             const text = await performOCR(formData);
+
+            if (!text) {
+                alert('OCR failed to extract text. Please try again.');
+                return;
+            }
+
             setExtractedText(text);
-            // Determine initial score
-            const results = calculateScore(text, frequency);
-            setScoreDetails(results);
-            await saveScan(text, results, frequency);
+
+            // 2. Calculate Score (Client-Side for now, could move to server)
+            // Determine frequency based on user input or detection (default to 'daily' for now)
+            // In a full app, we might ask the user "How often do you eat this?"
+            const currentFrequency: Frequency = 'Daily'; // Use 'Daily' as per the new logic for saving, but keep state for UI
+            const scoreDetails = calculateScore(text, currentFrequency);
+            setScoreData(scoreDetails);
+
+            // 3. Save to Supabase
+            // Note: In a real app, you might want to wait for user confirmation or save automatically
+            // Here we save automatically for history
+            await saveScan(text, scoreDetails, currentFrequency, productName);
+
         } catch (error) {
-            console.error(error);
-            alert('Failed to process image. Please try again.');
+            console.error("Processing failed:", error);
+            alert('Something went wrong during processing.');
         } finally {
             setIsProcessing(false);
         }
@@ -37,15 +60,16 @@ export default function Home() {
 
     const handleReset = () => {
         setExtractedText(null);
-        setScoreDetails(null);
+        setScoreData(null);
         setFrequency('Weekly');
+        setProductName('');
     };
 
     // Recalculate score if frequency changes
     useEffect(() => {
         if (extractedText) {
             const results = calculateScore(extractedText, frequency);
-            setScoreDetails(results);
+            setScoreData(results);
         }
     }, [frequency, extractedText]);
 
@@ -56,7 +80,7 @@ export default function Home() {
             <div className="space-y-8">
 
                 {/* Greeting / Intro */}
-                {!scoreDetails && !isProcessing && (
+                {!scoreData && !isProcessing && (
                     <div className="space-y-6 text-center animate-in fade-in slide-in-from-bottom-4 duration-700">
                         <div className="inline-block">
                             <h1 className="text-4xl font-black text-slate-900 tracking-tight leading-tight">
@@ -76,13 +100,25 @@ export default function Home() {
 
                 {/* Main Action Area */}
                 <div className="relative">
-                    {/* Uploader */}
-                    {!scoreDetails && (
-                        <ImageUploader onImageSelect={handleImageSelect} isProcessing={isProcessing} />
+                    {/* Uploader and Input */}
+                    {!scoreData && (
+                        <div className="space-y-6">
+                            <div className="bg-white p-4 rounded-2xl shadow-sm border border-slate-100">
+                                <label className="block text-sm font-medium text-slate-700 mb-2">Product Name</label>
+                                <input
+                                    type="text"
+                                    placeholder="e.g. Morning Cereal"
+                                    value={productName}
+                                    onChange={(e) => setProductName(e.target.value)}
+                                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
+                                />
+                            </div>
+                            <ImageUploader onImageSelect={handleImageSelect} isProcessing={isProcessing} />
+                        </div>
                     )}
 
                     {/* Results View */}
-                    {scoreDetails && (
+                    {scoreData && (
                         <div className="space-y-6">
                             {/* Frequency Settings Pill */}
                             <div className="glass-card p-2 rounded-full flex items-center justify-between pl-6 pr-2">
@@ -103,7 +139,7 @@ export default function Home() {
                                 </div>
                             </div>
 
-                            <ScannerResults details={scoreDetails} onReset={handleReset} />
+                            <ScannerResults details={scoreData} onReset={handleReset} />
 
                             {/* Debug Text */}
                             <details className="text-xs text-slate-400 mt-8 text-center">
