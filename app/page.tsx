@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import ImageUploader from '@/components/ImageUploader';
 import ScannerResults from '@/components/ScannerResults';
-import { processImage } from '@/utils/ocr';
+import { performOCR } from '@/app/actions/ocr';
 import Navbar from '@/components/Navbar';
 import { calculateScore, ScoreDetails, Frequency } from '@/utils/scoring';
 import { saveScan } from '@/utils/supabase';
@@ -19,7 +19,9 @@ export default function Home() {
         setScoreDetails(null);
         setExtractedText(null);
         try {
-            const text = await processImage(file);
+            const formData = new FormData();
+            formData.append('file', file);
+            const text = await performOCR(formData);
             setExtractedText(text);
             // Determine initial score
             const results = calculateScore(text, frequency);
