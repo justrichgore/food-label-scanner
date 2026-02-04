@@ -212,14 +212,14 @@ export default function AccountPage() {
                         </div>
                     ) : (
                         <div className="space-y-4">
-                            {scans.map((scan) => (
+                            {scans.map((scan: ScanRecord) => (
                                 <div
                                     key={scan.id}
                                     onClick={() => {
                                         setSelectedScan(scan);
                                         window.scrollTo({ top: 0, behavior: 'smooth' });
                                     }}
-                                    className={`glass-card p-4 rounded-xl flex justify-between items-center transition-all cursor-pointer border shadow-sm ${selectedScan?.id === scan.id ? 'ring-2 ring-emerald-500 bg-emerald-50/50 border-emerald-200' : 'hover:bg-white/60 border-white/60'}`}
+                                    className="glass-card p-4 rounded-xl flex justify-between items-center transition-all cursor-pointer border shadow-sm hover:bg-white/60 border-white/60"
                                 >
                                     <div>
                                         <div className="font-semibold text-slate-800 mb-0.5">
@@ -239,7 +239,7 @@ export default function AccountPage() {
                                         </div>
                                     </div>
                                     <div className="flex items-center gap-3">
-                                        <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold ${selectedScan?.id === scan.id ? 'bg-emerald-500 text-white shadow-lg' : 'bg-slate-100 text-slate-600'}`}>
+                                        <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold bg-slate-100 text-slate-600`}>
                                             {scan.score_details.score}
                                         </div>
                                         <button
