@@ -59,7 +59,7 @@ export default function ImageUploader({ onImageSelect, isProcessing }: ImageUplo
 
                 <div className={`
             relative rounded-[2rem] p-10 flex flex-col items-center justify-center text-center space-y-6
-            h-80 bg-white/80 backdrop-blur-xl border border-white/60 shadow-xl
+            min-h-[20rem] bg-white/80 backdrop-blur-xl border border-white/60 shadow-xl
             transition-all duration-300
             ${dragActive ? 'bg-white/90 border-emerald-400' : 'hover:border-white/80'}
             ${isProcessing ? 'cursor-wait' : ''}
