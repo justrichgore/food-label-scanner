@@ -8,17 +8,128 @@
     "tier": "Auto-Fail",
     "penalty": 100,
     "category": "Auto-Fail",
-    "notes": "Not permitted / hard avoid (often imported drinks)."
+    "notes": "Not permitted / hard avoid (often imported drinks).",
+    "tags": [
+      "auto_fail",
+      "additive"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 1.0,
+      "top6": 1.0,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 1.0,
+      "3to10": 1.0,
+      "lt3": 1.0
+    }
   },
   {
     "names": [
-      "Partially hydrogenated oil"
+      "Partially hydrogenated oil",
+      "Partially hydrogenated fat"
     ],
     "e_number": null,
     "tier": "Auto-Fail",
     "penalty": 100,
     "category": "Auto-Fail",
-    "notes": "Industrial trans fats; hard avoid."
+    "notes": "Industrial trans fats; hard avoid.",
+    "tags": [
+      "auto_fail",
+      "fat",
+      "trans"
+    ],
+    "match_type": "contains",
+    "position_multiplier": {
+      "top3": 1.0,
+      "top6": 1.0,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 1.0,
+      "3to10": 1.0,
+      "lt3": 1.0
+    }
+  },
+  {
+    "names": [
+      "Hydrogenated vegetable oil",
+      "Hydrogenated vegetable fat",
+      "Fully hydrogenated oil",
+      "Fully hydrogenated fat"
+    ],
+    "e_number": null,
+    "tier": "Auto-Fail",
+    "penalty": 100,
+    "category": "Auto-Fail",
+    "notes": "Hydrogenated industrial fats; strong avoid signal.",
+    "tags": [
+      "auto_fail",
+      "fat",
+      "trans"
+    ],
+    "match_type": "contains",
+    "position_multiplier": {
+      "top3": 1.0,
+      "top6": 1.0,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 1.0,
+      "3to10": 1.0,
+      "lt3": 1.0
+    }
+  },
+  {
+    "names": [
+      "Potassium bromate"
+    ],
+    "e_number": "E924",
+    "tier": "Auto-Fail",
+    "penalty": 100,
+    "category": "Auto-Fail",
+    "notes": "Flour improver not permitted in the UK/EU; hard avoid marker (imported goods).",
+    "tags": [
+      "auto_fail",
+      "additive"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 1.0,
+      "top6": 1.0,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 1.0,
+      "3to10": 1.0,
+      "lt3": 1.0
+    }
+  },
+  {
+    "names": [
+      "Azodicarbonamide"
+    ],
+    "e_number": null,
+    "tier": "Auto-Fail",
+    "penalty": 100,
+    "category": "Auto-Fail",
+    "notes": "Flour treatment agent not permitted in the UK/EU; hard avoid marker (imported goods).",
+    "tags": [
+      "auto_fail",
+      "additive"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 1.0,
+      "top6": 1.0,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 1.0,
+      "3to10": 1.0,
+      "lt3": 1.0
+    }
   },
   {
     "names": [
@@ -30,17 +141,50 @@
     "tier": "High Concern",
     "penalty": -25,
     "category": "Gut & Microbiome Disruptors",
-    "notes": "Emulsifier/thickener; precautionary gut integrity/micro"
+    "notes": "Emulsifier/thickener; precautionary gut integrity/microbiome signal.",
+    "tags": [
+      "emulsifier",
+      "gut",
+      "upf"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 2.0,
+      "top6": 1.5,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 2.0,
+      "3to10": 1.5,
+      "lt3": 1.0
+    }
   },
   {
     "names": [
-      "Polysorbate 80"
+      "Polysorbate 80",
+      "Polysorbate-80"
     ],
     "e_number": "E433",
     "tier": "High Concern",
     "penalty": -25,
     "category": "Gut & Microbiome Disruptors",
-    "notes": "Detergent-like emulsifier; microbiome disruption sign"
+    "notes": "Detergent-like emulsifier; microbiome disruption signal in some research.",
+    "tags": [
+      "emulsifier",
+      "gut",
+      "upf"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 2.0,
+      "top6": 1.5,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 2.0,
+      "3to10": 1.5,
+      "lt3": 1.0
+    }
   },
   {
     "names": [
@@ -50,7 +194,22 @@
     "tier": "High Concern",
     "penalty": -25,
     "category": "Gut & Microbiome Disruptors",
-    "notes": "Can trigger gut irritation in sensitive individuals."
+    "notes": "Can trigger gut irritation in sensitive individuals; precautionary flag.",
+    "tags": [
+      "thickener",
+      "gut"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 2.0,
+      "top6": 1.5,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 2.0,
+      "3to10": 1.5,
+      "lt3": 1.0
+    }
   },
   {
     "names": [
@@ -60,7 +219,22 @@
     "tier": "High Concern",
     "penalty": -25,
     "category": "Child Neurodevelopment & Behaviour",
-    "notes": "Southampton colour; hyperactivity risk signal in some"
+    "notes": "Southampton colour; hyperactivity risk signal in some children.",
+    "tags": [
+      "colour",
+      "child_sensitivity"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 2.0,
+      "top6": 1.5,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 2.0,
+      "3to10": 1.5,
+      "lt3": 1.0
+    }
   },
   {
     "names": [
@@ -70,7 +244,22 @@
     "tier": "High Concern",
     "penalty": -25,
     "category": "Child Neurodevelopment & Behaviour",
-    "notes": "Southampton colour; hyperactivity risk signal in some"
+    "notes": "Southampton colour; hyperactivity risk signal in some children.",
+    "tags": [
+      "colour",
+      "child_sensitivity"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 2.0,
+      "top6": 1.5,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 2.0,
+      "3to10": 1.5,
+      "lt3": 1.0
+    }
   },
   {
     "names": [
@@ -80,7 +269,22 @@
     "tier": "High Concern",
     "penalty": -25,
     "category": "Child Neurodevelopment & Behaviour",
-    "notes": "Southampton colour; hyperactivity risk signal in some"
+    "notes": "Southampton colour; hyperactivity risk signal in some children.",
+    "tags": [
+      "colour",
+      "child_sensitivity"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 2.0,
+      "top6": 1.5,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 2.0,
+      "3to10": 1.5,
+      "lt3": 1.0
+    }
   },
   {
     "names": [
@@ -90,7 +294,22 @@
     "tier": "High Concern",
     "penalty": -25,
     "category": "Child Neurodevelopment & Behaviour",
-    "notes": "Southampton colour; hyperactivity risk signal in some"
+    "notes": "Southampton colour; hyperactivity risk signal in some children.",
+    "tags": [
+      "colour",
+      "child_sensitivity"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 2.0,
+      "top6": 1.5,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 2.0,
+      "3to10": 1.5,
+      "lt3": 1.0
+    }
   },
   {
     "names": [
@@ -100,7 +319,22 @@
     "tier": "High Concern",
     "penalty": -25,
     "category": "Child Neurodevelopment & Behaviour",
-    "notes": "Southampton colour; hyperactivity risk signal in some"
+    "notes": "Southampton colour; hyperactivity risk signal in some children.",
+    "tags": [
+      "colour",
+      "child_sensitivity"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 2.0,
+      "top6": 1.5,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 2.0,
+      "3to10": 1.5,
+      "lt3": 1.0
+    }
   },
   {
     "names": [
@@ -110,20 +344,53 @@
     "tier": "High Concern",
     "penalty": -25,
     "category": "Child Neurodevelopment & Behaviour",
-    "notes": "Southampton colour; hyperactivity risk signal in some"
+    "notes": "Southampton colour; hyperactivity risk signal in some children.",
+    "tags": [
+      "colour",
+      "child_sensitivity"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 2.0,
+      "top6": 1.5,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 2.0,
+      "3to10": 1.5,
+      "lt3": 1.0
+    }
   },
   {
     "names": [
-      "Nitrites",
-      "nitrates",
       "Sodium nitrite",
-      "Potassium nitrate"
+      "Potassium nitrite",
+      "Sodium nitrate",
+      "Potassium nitrate",
+      "Nitrites",
+      "Nitrates"
     ],
     "e_number": "E249-E252",
     "tier": "High Concern",
     "penalty": -25,
     "category": "Cancer & Long-Term Risk Signals",
-    "notes": "Processed meat preservative; precautionary chronic"
+    "notes": "Processed meat preservative; precautionary long-term risk signal.",
+    "tags": [
+      "preservative",
+      "processed_meat",
+      "long_term"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 2.0,
+      "top6": 1.5,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 2.0,
+      "3to10": 1.5,
+      "lt3": 1.0
+    }
   },
   {
     "names": [
@@ -134,7 +401,22 @@
     "tier": "High Concern",
     "penalty": -25,
     "category": "Cancer & Long-Term Risk Signals",
-    "notes": "Synthetic antioxidant; higher concern in precautionar"
+    "notes": "Synthetic antioxidant; higher concern marker in precautionary frameworks.",
+    "tags": [
+      "antioxidant",
+      "long_term"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 2.0,
+      "top6": 1.5,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 2.0,
+      "3to10": 1.5,
+      "lt3": 1.0
+    }
   },
   {
     "names": [
@@ -145,7 +427,49 @@
     "tier": "High Concern",
     "penalty": -25,
     "category": "Cancer & Long-Term Risk Signals",
-    "notes": "Synthetic antioxidant; higher concern in precautionar"
+    "notes": "Synthetic antioxidant; higher concern marker in precautionary frameworks.",
+    "tags": [
+      "antioxidant",
+      "long_term"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 2.0,
+      "top6": 1.5,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 2.0,
+      "3to10": 1.5,
+      "lt3": 1.0
+    }
+  },
+  {
+    "names": [
+      "Interesterified fat",
+      "Interesterified vegetable fat",
+      "Interesterified oil"
+    ],
+    "e_number": null,
+    "tier": "High Concern",
+    "penalty": -25,
+    "category": "Ultra-Processed Food Markers",
+    "notes": "Industrial fat structuring; strong UPF formulation signal.",
+    "tags": [
+      "fat",
+      "upf"
+    ],
+    "match_type": "contains",
+    "position_multiplier": {
+      "top3": 2.0,
+      "top6": 1.5,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 2.0,
+      "3to10": 1.5,
+      "lt3": 1.0
+    }
   },
   {
     "names": [
@@ -154,8 +478,22 @@
     "e_number": "E211",
     "tier": "Medium Concern",
     "penalty": -10,
-    "category": "Preservative",
-    "notes": "Caution, especially with synthetic colours for children"
+    "category": "Preservatives",
+    "notes": "Caution, especially when combined with synthetic colours (child sensitivity context).",
+    "tags": [
+      "preservative"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 2.0,
+      "top6": 1.5,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 2.0,
+      "3to10": 1.5,
+      "lt3": 1.0
+    }
   },
   {
     "names": [
@@ -164,20 +502,52 @@
     "e_number": "E202",
     "tier": "Medium Concern",
     "penalty": -10,
-    "category": "Preservative",
-    "notes": "Broad antimicrobial preservative; moderate concern."
+    "category": "Preservatives",
+    "notes": "Broad antimicrobial preservative; moderate concern marker.",
+    "tags": [
+      "preservative"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 2.0,
+      "top6": 1.5,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 2.0,
+      "3to10": 1.5,
+      "lt3": 1.0
+    }
   },
   {
     "names": [
       "Sulphites",
-      "sulphur dioxide",
-      "metabisulphites"
+      "Sulfur dioxide",
+      "Sulphur dioxide",
+      "Sodium metabisulphite",
+      "Potassium metabisulphite",
+      "Metabisulphites"
     ],
     "e_number": "E220-E228",
     "tier": "Medium Concern",
     "penalty": -10,
     "category": "Sensitivity",
-    "notes": "Sensitivity trigger for some (asthma/headache)."
+    "notes": "Sensitivity trigger for some (asthma/headache).",
+    "tags": [
+      "sensitivity",
+      "preservative"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 2.0,
+      "top6": 1.5,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 2.0,
+      "3to10": 1.5,
+      "lt3": 1.0
+    }
   },
   {
     "names": [
@@ -186,8 +556,22 @@
     "e_number": "E951",
     "tier": "Medium Concern",
     "penalty": -10,
-    "category": "Sweetener",
-    "notes": "Artificial sweetener; avoid in PKU; child daily-food ca"
+    "category": "Sweeteners",
+    "notes": "Artificial sweetener; avoid in PKU; caution for everyday child foods.",
+    "tags": [
+      "sweetener"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 2.0,
+      "top6": 1.5,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 2.0,
+      "3to10": 1.5,
+      "lt3": 1.0
+    }
   },
   {
     "names": [
@@ -197,17 +581,147 @@
     "tier": "Medium Concern",
     "penalty": -10,
     "category": "Gut & Microbiome Disruptors",
-    "notes": "Artificial sweetener; gut and metabolic caution in some"
+    "notes": "Artificial sweetener; gut/metabolic caution marker in some research.",
+    "tags": [
+      "sweetener",
+      "gut"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 2.0,
+      "top6": 1.5,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 2.0,
+      "3to10": 1.5,
+      "lt3": 1.0
+    }
   },
   {
     "names": [
-      "Acesulfame K"
+      "Acesulfame K",
+      "Acesulfame potassium"
     ],
     "e_number": "E950",
     "tier": "Medium Concern",
     "penalty": -10,
-    "category": "Sweetener",
-    "notes": "Artificial sweetener; often used in blends."
+    "category": "Sweeteners",
+    "notes": "Artificial sweetener; often used in blends.",
+    "tags": [
+      "sweetener"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 2.0,
+      "top6": 1.5,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 2.0,
+      "3to10": 1.5,
+      "lt3": 1.0
+    }
+  },
+  {
+    "names": [
+      "Cyclamate",
+      "Sodium cyclamate"
+    ],
+    "e_number": "E952",
+    "tier": "Medium Concern",
+    "penalty": -10,
+    "category": "Sweeteners",
+    "notes": "Artificial sweetener; moderate precautionary marker.",
+    "tags": [
+      "sweetener"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 2.0,
+      "top6": 1.5,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 2.0,
+      "3to10": 1.5,
+      "lt3": 1.0
+    }
+  },
+  {
+    "names": [
+      "Saccharin",
+      "Sodium saccharin"
+    ],
+    "e_number": "E954",
+    "tier": "Medium Concern",
+    "penalty": -10,
+    "category": "Sweeteners",
+    "notes": "Artificial sweetener; moderate precautionary marker.",
+    "tags": [
+      "sweetener"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 2.0,
+      "top6": 1.5,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 2.0,
+      "3to10": 1.5,
+      "lt3": 1.0
+    }
+  },
+  {
+    "names": [
+      "Neotame"
+    ],
+    "e_number": "E961",
+    "tier": "Medium Concern",
+    "penalty": -10,
+    "category": "Sweeteners",
+    "notes": "High-intensity artificial sweetener; UPF marker.",
+    "tags": [
+      "sweetener",
+      "upf"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 2.0,
+      "top6": 1.5,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 2.0,
+      "3to10": 1.5,
+      "lt3": 1.0
+    }
+  },
+  {
+    "names": [
+      "Advantame"
+    ],
+    "e_number": "E969",
+    "tier": "Medium Concern",
+    "penalty": -10,
+    "category": "Sweeteners",
+    "notes": "High-intensity artificial sweetener; UPF marker.",
+    "tags": [
+      "sweetener",
+      "upf"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 2.0,
+      "top6": 1.5,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 2.0,
+      "3to10": 1.5,
+      "lt3": 1.0
+    }
   },
   {
     "names": [
@@ -218,7 +732,262 @@
     "tier": "Medium Concern",
     "penalty": -10,
     "category": "Cancer & Long-Term Risk Signals",
-    "notes": "Synthetic antioxidant; moderate concern marker."
+    "notes": "Synthetic antioxidant; moderate concern marker.",
+    "tags": [
+      "antioxidant",
+      "long_term"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 2.0,
+      "top6": 1.5,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 2.0,
+      "3to10": 1.5,
+      "lt3": 1.0
+    }
+  },
+  {
+    "names": [
+      "Propyl gallate"
+    ],
+    "e_number": "E310",
+    "tier": "Medium Concern",
+    "penalty": -10,
+    "category": "Cancer & Long-Term Risk Signals",
+    "notes": "Synthetic antioxidant; precautionary marker.",
+    "tags": [
+      "antioxidant",
+      "long_term"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 2.0,
+      "top6": 1.5,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 2.0,
+      "3to10": 1.5,
+      "lt3": 1.0
+    }
+  },
+  {
+    "names": [
+      "Monosodium glutamate",
+      "MSG"
+    ],
+    "e_number": "E621",
+    "tier": "Medium Concern",
+    "penalty": -10,
+    "category": "Ultra-Processed Food Markers",
+    "notes": "Flavour enhancer; UPF marker (not a toxicity claim).",
+    "tags": [
+      "flavour_enhancer",
+      "upf"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 2.0,
+      "top6": 1.5,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 2.0,
+      "3to10": 1.5,
+      "lt3": 1.0
+    }
+  },
+  {
+    "names": [
+      "Palm oil",
+      "Palm fat",
+      "Palm kernel oil",
+      "Palm kernel fat"
+    ],
+    "e_number": null,
+    "tier": "Medium Concern",
+    "penalty": -10,
+    "category": "Fat Quality",
+    "notes": "Often a UPF fat base; saturated-fat heavy (ingredients-only signal).",
+    "tags": [
+      "fat",
+      "saturated",
+      "upf"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 2.0,
+      "top6": 1.5,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 2.0,
+      "3to10": 1.5,
+      "lt3": 1.0
+    }
+  },
+  {
+    "names": [
+      "Vegetable oil",
+      "Vegetable fat"
+    ],
+    "e_number": null,
+    "tier": "Medium Concern",
+    "penalty": -10,
+    "category": "Fat Quality",
+    "notes": "Unspecified oil/fat reduces transparency; often refined blends.",
+    "tags": [
+      "fat",
+      "transparency",
+      "upf"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 1.5,
+      "top6": 1.2,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 2.0,
+      "3to10": 1.5,
+      "lt3": 1.0
+    }
+  },
+  {
+    "names": [
+      "Shortening"
+    ],
+    "e_number": null,
+    "tier": "Medium Concern",
+    "penalty": -10,
+    "category": "Fat Quality",
+    "notes": "Usually refined/structured fat used in baked UPFs.",
+    "tags": [
+      "fat",
+      "upf"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 1.5,
+      "top6": 1.2,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 2.0,
+      "3to10": 1.5,
+      "lt3": 1.0
+    }
+  },
+  {
+    "names": [
+      "Glucose-fructose syrup",
+      "Fructose-glucose syrup",
+      "High fructose corn syrup",
+      "HFCS"
+    ],
+    "e_number": null,
+    "tier": "Medium Concern",
+    "penalty": -10,
+    "category": "Added Sugars",
+    "notes": "Refined syrup sweeteners; added-sugar marker.",
+    "tags": [
+      "sugar",
+      "upf"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 2.0,
+      "top6": 1.5,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 2.0,
+      "3to10": 1.5,
+      "lt3": 1.0
+    }
+  },
+  {
+    "names": [
+      "Sugar",
+      "Cane sugar",
+      "Beet sugar",
+      "Brown sugar",
+      "Raw cane sugar",
+      "Golden sugar"
+    ],
+    "e_number": null,
+    "tier": "Medium Concern",
+    "penalty": -10,
+    "category": "Added Sugars",
+    "notes": "Added sugar; ingredients-only marker. Weight increases if early in list.",
+    "tags": [
+      "sugar"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 2.0,
+      "top6": 1.5,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 2.0,
+      "3to10": 1.5,
+      "lt3": 1.0
+    }
+  },
+  {
+    "names": [
+      "Fructose"
+    ],
+    "e_number": null,
+    "tier": "Medium Concern",
+    "penalty": -10,
+    "category": "Added Sugars",
+    "notes": "Added sugar marker (when listed as an ingredient).",
+    "tags": [
+      "sugar"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 2.0,
+      "top6": 1.5,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 2.0,
+      "3to10": 1.5,
+      "lt3": 1.0
+    }
+  },
+  {
+    "names": [
+      "Fruit juice concentrate",
+      "Concentrated fruit juice",
+      "Fruit concentrate"
+    ],
+    "e_number": null,
+    "tier": "Medium Concern",
+    "penalty": -10,
+    "category": "Added Sugars",
+    "notes": "Often used as 'no added sugar' sweetener; still added free sugar marker.",
+    "tags": [
+      "sugar",
+      "health_halo"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 2.0,
+      "top6": 1.5,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 2.0,
+      "3to10": 1.5,
+      "lt3": 1.0
+    }
   },
   {
     "names": [
@@ -228,42 +997,78 @@
     "tier": "Low Concern",
     "penalty": -3,
     "category": "Ultra-Processed Food Markers",
-    "notes": "Highly processed filler; transparency and glycaemic s"
+    "notes": "Highly processed filler; glycaemic/transparency marker.",
+    "tags": [
+      "upf"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 2.0,
+      "top6": 1.5,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 2.0,
+      "3to10": 1.5,
+      "lt3": 1.0
+    }
   },
   {
     "names": [
-      "Modified starch"
+      "Modified starch",
+      "Modified maize starch",
+      "Modified corn starch",
+      "Modified tapioca starch"
     ],
     "e_number": null,
     "tier": "Low Concern",
     "penalty": -3,
     "category": "Ultra-Processed Food Markers",
-    "notes": "Processing indicator; texture/holding agent."
+    "notes": "Processing indicator; texture/holding agent.",
+    "tags": [
+      "upf"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 2.0,
+      "top6": 1.5,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 2.0,
+      "3to10": 1.5,
+      "lt3": 1.0
+    }
   },
   {
     "names": [
       "Flavouring",
       "Flavourings",
       "Natural flavouring",
-      "Artificial flavouring"
+      "Natural flavourings",
+      "Artificial flavouring",
+      "Artificial flavourings"
     ],
     "e_number": null,
     "tier": "Low Concern",
     "penalty": -3,
     "category": "Ultra-Processed Food Markers",
-    "notes": "Non-specific / transparency penalty."
-  },
-  {
-    "names": [
-      "Glucose syrup",
-      "Dextrose",
-      "Invert sugar syrup"
+    "notes": "Non-specific flavour system; transparency/UPF marker.",
+    "tags": [
+      "upf",
+      "transparency"
     ],
-    "e_number": null,
-    "tier": "Low Concern",
-    "penalty": -3,
-    "category": "Sugar marker",
-    "notes": "Refined sugar ingredient; frequent intake concern."
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 2.0,
+      "top6": 1.5,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 2.0,
+      "3to10": 1.5,
+      "lt3": 1.0
+    }
   },
   {
     "names": [
@@ -273,7 +1078,420 @@
     "tier": "Low Concern",
     "penalty": -3,
     "category": "Ultra-Processed Food Markers",
-    "notes": "If named sweeteners exist, score those directly; otherwise generic UPF."
+    "notes": "Generic sweetener blend term; score named sweeteners when present.",
+    "tags": [
+      "upf",
+      "sweetener"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 2.0,
+      "top6": 1.5,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 2.0,
+      "3to10": 1.5,
+      "lt3": 1.0
+    }
+  },
+  {
+    "names": [
+      "Glucose syrup",
+      "Dextrose",
+      "Invert sugar syrup",
+      "Corn syrup"
+    ],
+    "e_number": null,
+    "tier": "Low Concern",
+    "penalty": -3,
+    "category": "Added Sugars",
+    "notes": "Refined sugar ingredient; added-sugar marker.",
+    "tags": [
+      "sugar"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 2.0,
+      "top6": 1.5,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 2.0,
+      "3to10": 1.5,
+      "lt3": 1.0
+    }
+  },
+  {
+    "names": [
+      "Starch",
+      "Maize starch",
+      "Corn starch",
+      "Potato starch",
+      "Tapioca starch"
+    ],
+    "e_number": null,
+    "tier": "Low Concern",
+    "penalty": -3,
+    "category": "Refined Carbohydrate Base",
+    "notes": "Refined starch base; used in UPF structure/texture.",
+    "tags": [
+      "refined_carb",
+      "upf"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 2.0,
+      "top6": 1.5,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 2.0,
+      "3to10": 1.5,
+      "lt3": 1.0
+    }
+  },
+  {
+    "names": [
+      "Wheat flour",
+      "White wheat flour",
+      "Refined wheat flour",
+      "Plain flour",
+      "Enriched wheat flour"
+    ],
+    "e_number": null,
+    "tier": "Low Concern",
+    "penalty": -3,
+    "category": "Refined Carbohydrate Base",
+    "notes": "Refined flour base; low-fibre base marker (ingredients-only).",
+    "tags": [
+      "refined_carb"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 1.5,
+      "top6": 1.2,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 2.0,
+      "3to10": 1.5,
+      "lt3": 1.0
+    }
+  },
+  {
+    "names": [
+      "Vegetable glycerine",
+      "Glycerol"
+    ],
+    "e_number": "E422",
+    "tier": "Low Concern",
+    "penalty": -3,
+    "category": "Ultra-Processed Food Markers",
+    "notes": "Humectant used in processed foods; UPF marker.",
+    "tags": [
+      "upf"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 2.0,
+      "top6": 1.5,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 2.0,
+      "3to10": 1.5,
+      "lt3": 1.0
+    }
+  },
+  {
+    "names": [
+      "Yeast extract",
+      "Autolysed yeast",
+      "Yeast extract powder"
+    ],
+    "e_number": null,
+    "tier": "Low Concern",
+    "penalty": -3,
+    "category": "Ultra-Processed Food Markers",
+    "notes": "Flavour system marker; can indicate engineered savoury profile.",
+    "tags": [
+      "upf",
+      "flavour_system"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 2.0,
+      "top6": 1.5,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 2.0,
+      "3to10": 1.5,
+      "lt3": 1.0
+    }
+  },
+  {
+    "names": [
+      "Hydrolysed vegetable protein",
+      "Hydrolyzed vegetable protein",
+      "HVP"
+    ],
+    "e_number": null,
+    "tier": "Low Concern",
+    "penalty": -3,
+    "category": "Ultra-Processed Food Markers",
+    "notes": "Flavour system marker; engineered savoury profile.",
+    "tags": [
+      "upf",
+      "flavour_system"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 2.0,
+      "top6": 1.5,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 2.0,
+      "3to10": 1.5,
+      "lt3": 1.0
+    }
+  },
+  {
+    "names": [
+      "Emulsifier",
+      "Emulsifiers"
+    ],
+    "e_number": null,
+    "tier": "Low Concern",
+    "penalty": -3,
+    "category": "Ultra-Processed Food Markers",
+    "notes": "Generic emulsifier term; named emulsifiers scored separately when present.",
+    "tags": [
+      "upf",
+      "emulsifier"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 2.0,
+      "top6": 1.5,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 2.0,
+      "3to10": 1.5,
+      "lt3": 1.0
+    }
+  },
+  {
+    "names": [
+      "Stabiliser",
+      "Stabiliser(s)",
+      "Stabilizers",
+      "Stabilizer"
+    ],
+    "e_number": null,
+    "tier": "Low Concern",
+    "penalty": -3,
+    "category": "Ultra-Processed Food Markers",
+    "notes": "Generic stabiliser term; processing marker.",
+    "tags": [
+      "upf"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 2.0,
+      "top6": 1.5,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 2.0,
+      "3to10": 1.5,
+      "lt3": 1.0
+    }
+  },
+  {
+    "names": [
+      "Thickener",
+      "Thickeners"
+    ],
+    "e_number": null,
+    "tier": "Low Concern",
+    "penalty": -3,
+    "category": "Ultra-Processed Food Markers",
+    "notes": "Generic thickener term; processing marker.",
+    "tags": [
+      "upf"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 2.0,
+      "top6": 1.5,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 2.0,
+      "3to10": 1.5,
+      "lt3": 1.0
+    }
+  },
+  {
+    "names": [
+      "Colour",
+      "Colours",
+      "Color",
+      "Colors"
+    ],
+    "e_number": null,
+    "tier": "Low Concern",
+    "penalty": -3,
+    "category": "Ultra-Processed Food Markers",
+    "notes": "Generic colour term; named colours scored separately.",
+    "tags": [
+      "upf",
+      "colour"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 2.0,
+      "top6": 1.5,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 2.0,
+      "3to10": 1.5,
+      "lt3": 1.0
+    }
+  },
+  {
+    "names": [
+      "Sunflower oil",
+      "High oleic sunflower oil"
+    ],
+    "e_number": null,
+    "tier": "Low Concern",
+    "penalty": -3,
+    "category": "Fat Quality",
+    "notes": "Refined seed oil; mild formulation marker (context dependent).",
+    "tags": [
+      "fat",
+      "upf"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 1.5,
+      "top6": 1.2,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 2.0,
+      "3to10": 1.5,
+      "lt3": 1.0
+    }
+  },
+  {
+    "names": [
+      "Rapeseed oil",
+      "Canola oil"
+    ],
+    "e_number": null,
+    "tier": "Low Concern",
+    "penalty": -3,
+    "category": "Fat Quality",
+    "notes": "Refined oil; mild formulation marker (context dependent).",
+    "tags": [
+      "fat",
+      "upf"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 1.5,
+      "top6": 1.2,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 2.0,
+      "3to10": 1.5,
+      "lt3": 1.0
+    }
+  },
+  {
+    "names": [
+      "Soybean oil",
+      "Soya oil"
+    ],
+    "e_number": null,
+    "tier": "Low Concern",
+    "penalty": -3,
+    "category": "Fat Quality",
+    "notes": "Refined oil; mild formulation marker (context dependent).",
+    "tags": [
+      "fat",
+      "upf"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 1.5,
+      "top6": 1.2,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 2.0,
+      "3to10": 1.5,
+      "lt3": 1.0
+    }
+  },
+  {
+    "names": [
+      "Corn oil",
+      "Maize oil"
+    ],
+    "e_number": null,
+    "tier": "Low Concern",
+    "penalty": -3,
+    "category": "Fat Quality",
+    "notes": "Refined oil; mild formulation marker (context dependent).",
+    "tags": [
+      "fat",
+      "upf"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 1.5,
+      "top6": 1.2,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 2.0,
+      "3to10": 1.5,
+      "lt3": 1.0
+    }
+  },
+  {
+    "names": [
+      "Coconut oil"
+    ],
+    "e_number": null,
+    "tier": "Low Concern",
+    "penalty": -3,
+    "category": "Fat Quality",
+    "notes": "Saturated-fat-heavy oil; ingredients-only marker (context dependent).",
+    "tags": [
+      "fat",
+      "saturated"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 1.5,
+      "top6": 1.2,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 2.0,
+      "3to10": 1.5,
+      "lt3": 1.0
+    }
   },
   {
     "names": [
@@ -283,7 +1501,21 @@
     "tier": "No Penalty",
     "penalty": 0,
     "category": "Generally OK",
-    "notes": "Common acidity regulator/preservative."
+    "notes": "Common acidity regulator/preservative.",
+    "tags": [
+      "ok"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 1.0,
+      "top6": 1.0,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 1.0,
+      "3to10": 1.0,
+      "lt3": 1.0
+    }
   },
   {
     "names": [
@@ -294,19 +1526,48 @@
     "tier": "No Penalty",
     "penalty": 0,
     "category": "Generally OK",
-    "notes": "Antioxidant/preservative."
+    "notes": "Antioxidant/preservative.",
+    "tags": [
+      "ok"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 1.0,
+      "top6": 1.0,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 1.0,
+      "3to10": 1.0,
+      "lt3": 1.0
+    }
   },
   {
     "names": [
       "Lecithin",
       "Soy lecithin",
+      "Soya lecithin",
       "Sunflower lecithin"
     ],
     "e_number": "E322",
     "tier": "No Penalty",
     "penalty": 0,
     "category": "Generally OK",
-    "notes": "Mild emulsifier; generally acceptable."
+    "notes": "Mild emulsifier; generally acceptable.",
+    "tags": [
+      "ok"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 1.0,
+      "top6": 1.0,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 1.0,
+      "3to10": 1.0,
+      "lt3": 1.0
+    }
   },
   {
     "names": [
@@ -316,7 +1577,21 @@
     "tier": "No Penalty",
     "penalty": 0,
     "category": "Generally OK",
-    "notes": "Lower concern thickener."
+    "notes": "Lower concern thickener.",
+    "tags": [
+      "ok"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 1.0,
+      "top6": 1.0,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 1.0,
+      "3to10": 1.0,
+      "lt3": 1.0
+    }
   },
   {
     "names": [
@@ -326,7 +1601,21 @@
     "tier": "No Penalty",
     "penalty": 0,
     "category": "Generally OK",
-    "notes": "Lower concern thickener; occasional sensitivity possible"
+    "notes": "Lower concern thickener; occasional sensitivity possible.",
+    "tags": [
+      "ok"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 1.0,
+      "top6": 1.0,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 1.0,
+      "3to10": 1.0,
+      "lt3": 1.0
+    }
   },
   {
     "names": [
@@ -336,6 +1625,175 @@
     "tier": "No Penalty",
     "penalty": 0,
     "category": "Generally OK",
-    "notes": "Lower concern thickener; often replaces carrageenan"
+    "notes": "Lower concern thickener; often replaces carrageenan.",
+    "tags": [
+      "ok"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 1.0,
+      "top6": 1.0,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 1.0,
+      "3to10": 1.0,
+      "lt3": 1.0
+    }
+  },
+  {
+    "names": [
+      "Pectin"
+    ],
+    "e_number": "E440",
+    "tier": "No Penalty",
+    "penalty": 0,
+    "category": "Generally OK",
+    "notes": "Gelling agent; generally acceptable.",
+    "tags": [
+      "ok"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 1.0,
+      "top6": 1.0,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 1.0,
+      "3to10": 1.0,
+      "lt3": 1.0
+    }
+  },
+  {
+    "names": [
+      "Agar"
+    ],
+    "e_number": "E406",
+    "tier": "No Penalty",
+    "penalty": 0,
+    "category": "Generally OK",
+    "notes": "Seaweed-derived gelling agent; generally acceptable.",
+    "tags": [
+      "ok"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 1.0,
+      "top6": 1.0,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 1.0,
+      "3to10": 1.0,
+      "lt3": 1.0
+    }
+  },
+  {
+    "names": [
+      "Extra virgin olive oil",
+      "Olive oil"
+    ],
+    "e_number": null,
+    "tier": "No Penalty",
+    "penalty": 0,
+    "category": "Generally OK",
+    "notes": "Named oil; generally favourable fat profile.",
+    "tags": [
+      "fat",
+      "ok"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 1.0,
+      "top6": 1.0,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 1.0,
+      "3to10": 1.0,
+      "lt3": 1.0
+    }
+  },
+  {
+    "names": [
+      "Avocado oil"
+    ],
+    "e_number": null,
+    "tier": "No Penalty",
+    "penalty": 0,
+    "category": "Generally OK",
+    "notes": "Named oil; generally favourable fat profile.",
+    "tags": [
+      "fat",
+      "ok"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 1.0,
+      "top6": 1.0,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 1.0,
+      "3to10": 1.0,
+      "lt3": 1.0
+    }
+  },
+  {
+    "names": [
+      "Wholemeal wheat flour",
+      "Whole wheat flour",
+      "Wholegrain wheat flour",
+      "Wholegrain oats",
+      "Oats",
+      "Rolled oats"
+    ],
+    "e_number": null,
+    "tier": "No Penalty",
+    "penalty": 0,
+    "category": "Generally OK",
+    "notes": "Whole-grain base ingredient; no penalty in ingredients-only scoring.",
+    "tags": [
+      "wholegrain",
+      "ok"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 1.0,
+      "top6": 1.0,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 1.0,
+      "3to10": 1.0,
+      "lt3": 1.0
+    }
+  },
+  {
+    "names": [
+      "Steviol glycosides",
+      "Stevia"
+    ],
+    "e_number": "E960",
+    "tier": "No Penalty",
+    "penalty": 0,
+    "category": "Generally OK",
+    "notes": "Non-sugar sweetener from stevia; no penalty in this framework.",
+    "tags": [
+      "sweetener",
+      "ok"
+    ],
+    "match_type": "exact_or_contains",
+    "position_multiplier": {
+      "top3": 1.0,
+      "top6": 1.0,
+      "rest": 1.0
+    },
+    "percent_multiplier": {
+      "gt10": 1.0,
+      "3to10": 1.0,
+      "lt3": 1.0
+    }
   }
 ]

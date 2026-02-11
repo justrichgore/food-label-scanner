@@ -1,4 +1,4 @@
-import dictionaryData from '../../data/dictionary.json';
+import dictionaryData from '../data/dictionary.json';
 
 export type Frequency = 'Daily' | 'Weekly' | 'Rare';
 

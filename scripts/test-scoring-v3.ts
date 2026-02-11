@@ -1,5 +1,6 @@
 
 import { calculateScore, ScoreDetails } from '../utils/scoring';
+import dictionary from '../data/dictionary.json';
 
 const testCases = [
     {
