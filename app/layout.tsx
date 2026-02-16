@@ -12,6 +12,8 @@ export const metadata: Metadata = {
   description: "Reveal hidden health risks in your food ingredients.",
 };
 
+import Sidebar from "@/components/Sidebar";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -20,9 +22,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${outfit.variable} antialiased font-sans`}
+        className={`${outfit.variable} antialiased font-sans flex min-h-screen bg-slate-50`}
       >
-        {children}
+        <Sidebar />
+        <main className="flex-1 relative overflow-x-hidden">
+          {children}
+        </main>
       </body>
     </html>
   );

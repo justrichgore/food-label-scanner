@@ -7,6 +7,7 @@ import { performOCR } from '@/app/actions/ocr';
 import Navbar from '@/components/Navbar';
 import { calculateScore, ScoreDetails, Frequency } from '@/utils/scoring';
 import { saveScan } from '@/utils/supabase-legacy';
+import RecentScans from '@/components/RecentScans';
 
 export default function Home() {
     const [isProcessing, setIsProcessing] = useState(false);
@@ -74,84 +75,107 @@ export default function Home() {
     }, [frequency, extractedText]);
 
     return (
-        <main className="min-h-screen pb-20 px-6 pt-12 max-w-md mx-auto relative z-10">
+        <div className="min-h-screen pb-20 pt-8 px-6 relative z-10 w-full">
             <Navbar />
 
-            <div className="space-y-8">
+            {/* Content Container - Responsive */}
+            <div className="max-w-md mx-auto md:max-w-6xl md:mx-0 md:px-8 transition-all duration-500">
 
-                {/* Greeting / Intro */}
-                {!scoreData && !isProcessing && (
-                    <div className="space-y-6 text-center animate-in fade-in slide-in-from-bottom-4 duration-700">
-                        <div className="inline-block">
-                            <h1 className="text-4xl font-black text-slate-900 tracking-tight leading-tight">
-                                Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-teal-500">Smart Assistant</span> for Safer Eating
-                            </h1>
-                        </div>
+                {/* Desktop Header */}
+                <div className="hidden md:block mb-10">
+                    <h1 className="text-3xl font-bold text-slate-900">Dashboard</h1>
+                    <p className="text-slate-500">Welcome back, here is your activity overview.</p>
+                </div>
 
-                        {/* Chat Bubble Effect */}
-                        <div className="relative inline-block mx-auto">
-                            <div className="glass-card px-6 py-4 rounded-2xl rounded-bl-sm text-left max-w-xs mx-auto transform transition-transform hover:-translate-y-1 duration-300">
-                                <p className="text-slate-600 font-medium">Hello! 👋</p>
-                                <p className="text-slate-500 text-sm mt-1">Scan an ingredient label, and I&apos;ll analyze it for hidden health risks instantly.</p>
-                            </div>
-                        </div>
-                    </div>
-                )}
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-start">
 
-                {/* Main Action Area */}
-                <div className="relative">
-                    {/* Uploader and Input */}
-                    {!scoreData && (
-                        <div className="space-y-6">
-                            <div className="bg-white p-4 rounded-2xl shadow-sm border border-slate-100">
-                                <label className="block text-sm font-medium text-slate-700 mb-2">Product Name</label>
-                                <input
-                                    type="text"
-                                    placeholder="e.g. Morning Cereal"
-                                    value={productName}
-                                    onChange={(e) => setProductName(e.target.value)}
-                                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
-                                />
-                            </div>
-                            <ImageUploader onImageSelect={handleImageSelect} isProcessing={isProcessing} />
-                        </div>
-                    )}
+                    {/* LEFT COLUMN: Scanner / Main Action */}
+                    <div className="md:col-span-7 lg:col-span-8 space-y-8">
+                        {/* Greeting / Intro (Mobile & Desktop if state allows) */}
+                        {!scoreData && !isProcessing && (
+                            <div className="space-y-6 text-center md:text-left animate-in fade-in slide-in-from-bottom-4 duration-700">
+                                <div className="inline-block">
+                                    <h1 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+                                        Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-teal-500">Smart Assistant</span> for Safer Eating
+                                    </h1>
+                                </div>
 
-                    {/* Results View */}
-                    {scoreData && (
-                        <div className="space-y-6">
-                            {/* Frequency Settings Pill */}
-                            <div className="glass-card p-2 rounded-full flex items-center justify-between pl-6 pr-2">
-                                <span className="text-sm font-semibold text-slate-600">Consumption:</span>
-                                <div className="flex gap-1">
-                                    {(['Daily', 'Weekly', 'Rare'] as Frequency[]).map((freq) => (
-                                        <button
-                                            key={freq}
-                                            onClick={() => setFrequency(freq)}
-                                            className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${frequency === freq
-                                                ? 'bg-slate-900 text-white shadow-md'
-                                                : 'text-slate-500 hover:text-slate-900 hover:bg-white/50'
-                                                }`}
-                                        >
-                                            {freq}
-                                        </button>
-                                    ))}
+                                {/* Chat Bubble Effect */}
+                                <div className="relative inline-block mx-auto md:mx-0">
+                                    <div className="glass-card px-6 py-4 rounded-2xl rounded-bl-sm text-left max-w-xs transform transition-transform hover:-translate-y-1 duration-300">
+                                        <p className="text-slate-600 font-medium">Hello! 👋</p>
+                                        <p className="text-slate-500 text-sm mt-1">Scan an ingredient label, and I&apos;ll analyze it for hidden health risks instantly.</p>
+                                    </div>
                                 </div>
                             </div>
+                        )}
 
-                            <ScannerResults details={scoreData} onReset={handleReset} />
+                        {/* Main Action Area */}
+                        <div className="relative">
+                            {/* Uploader and Input */}
+                            {!scoreData && (
+                                <div className="space-y-6">
+                                    <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                                        <label className="block text-sm font-medium text-slate-700 mb-2">Product Name</label>
+                                        <input
+                                            type="text"
+                                            placeholder="e.g. Morning Cereal"
+                                            value={productName}
+                                            onChange={(e) => setProductName(e.target.value)}
+                                            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
+                                        />
+                                    </div>
+                                    <ImageUploader onImageSelect={handleImageSelect} isProcessing={isProcessing} />
+                                </div>
+                            )}
 
-                            {/* Debug Text */}
-                            <details className="text-xs text-slate-400 mt-8 text-center">
-                                <summary className="cursor-pointer mb-2 hover:text-slate-600 transition-colors">View Extracted Text</summary>
-                                <p className="p-4 bg-white/50 rounded-2xl border border-white/60 whitespace-pre-wrap font-mono text-left">
-                                    {extractedText}
-                                </p>
-                            </details>
+                            {/* Results View */}
+                            {scoreData && (
+                                <div className="space-y-6 animate-in fade-in zoom-in-95 duration-500">
+                                    {/* Frequency Settings Pill */}
+                                    <div className="glass-card p-2 rounded-full flex items-center justify-between pl-6 pr-2">
+                                        <span className="text-sm font-semibold text-slate-600">Consumption:</span>
+                                        <div className="flex gap-1">
+                                            {(['Daily', 'Weekly', 'Rare'] as Frequency[]).map((freq) => (
+                                                <button
+                                                    key={freq}
+                                                    onClick={() => setFrequency(freq)}
+                                                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${frequency === freq
+                                                        ? 'bg-slate-900 text-white shadow-md'
+                                                        : 'text-slate-500 hover:text-slate-900 hover:bg-white/50'
+                                                        }`}
+                                                >
+                                                    {freq}
+                                                </button>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    <ScannerResults details={scoreData} onReset={handleReset} />
+
+                                    {/* Debug Text */}
+                                    <details className="text-xs text-slate-400 mt-8 text-center md:text-left">
+                                        <summary className="cursor-pointer mb-2 hover:text-slate-600 transition-colors">View Extracted Text</summary>
+                                        <p className="p-4 bg-white/50 rounded-2xl border border-white/60 whitespace-pre-wrap font-mono text-left">
+                                            {extractedText}
+                                        </p>
+                                    </details>
+                                </div>
+                            )}
                         </div>
-                    )}
+                    </div>
+
+                    {/* RIGHT COLUMN: Recent Scans (Desktop Only) */}
+                    <div className="hidden md:block col-span-5 lg:col-span-4 space-y-6">
+                        <div className="sticky top-24">
+                            {/* Add import for RecentScans at the top of the file! */}
+                            {/* Using lazy load or direct import? Direct import is better for client comps */}
+                            {/* Note: I will need to add the import statement separately as this is inside the return */}
+                            <RecentScans />
+                        </div>
+                    </div>
                 </div>
             </div>
-        </main>
+        </div>
     );
 }
