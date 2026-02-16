@@ -178,8 +178,8 @@ function matchEntry(entry: DictionaryEntry, token: IngredientToken): boolean {
     // 1. Check E-number
     if (entry.e_number) {
         // Normalize OCR text to capture "E330", "E-330", "E 330"
-        // Simple heuristic: look for "e" followed by number in token
-        const eMatch = token.norm.match(/e[\s-]?(\d+)/);
+        // Improved: enforce word boundary to avoid "puree 2" matching "e 2" -> E2
+        const eMatch = token.norm.match(/\be[\s-]?(\d+)\b/i);
         if (eMatch) {
             const foundE = `E${eMatch[1]}`; // standard E330 format
             // Check against entry e_number (could be range "E249-E252" or single "E330")
