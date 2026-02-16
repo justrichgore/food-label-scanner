@@ -328,9 +328,9 @@ export function calculateScore(text: string, frequency: Frequency = 'Weekly'): S
     });
 
     if (upfCount >= 5) {
-        rulePenalties.push({ rule: 'UPF Stack (5+)', penalty: -15, explanation: 'High number of ultra-processed markers detected.' });
+        rulePenalties.push({ rule: 'UPF Stack (5+)', penalty: -7.5, explanation: 'High number of ultra-processed markers detected.' });
     } else if (upfCount >= 3) {
-        rulePenalties.push({ rule: 'UPF Stack (3+)', penalty: -10, explanation: 'Multiple ultra-processed markers detected.' });
+        rulePenalties.push({ rule: 'UPF Stack (3+)', penalty: -5, explanation: 'Multiple ultra-processed markers detected.' });
     }
 
     // Rule: Triad (Fat + Sugar + Refined Carb)
@@ -356,9 +356,9 @@ export function calculateScore(text: string, frequency: Frequency = 'Weekly'): S
 
     if (hasFat && hasSugar && hasCarb) {
         if (top3Count >= 2) {
-            rulePenalties.push({ rule: 'Hyper-Palatable Triad', penalty: -15, explanation: 'Combination of fat, sugar, and refined carbs in main ingredients.' });
+            rulePenalties.push({ rule: 'Hyper-Palatable Triad', penalty: -7.5, explanation: 'Combination of fat, sugar, and refined carbs in main ingredients.' });
         } else {
-            rulePenalties.push({ rule: 'Hyper-Palatable Triad', penalty: -10, explanation: 'Combination of fat, sugar, and refined carbs.' });
+            rulePenalties.push({ rule: 'Hyper-Palatable Triad', penalty: -5, explanation: 'Combination of fat, sugar, and refined carbs.' });
         }
     }
 
@@ -378,8 +378,8 @@ export function calculateScore(text: string, frequency: Frequency = 'Weekly'): S
     });
 
     if (fatCount >= 2) {
-        let p = -5;
-        if (hasSaturated) p -= 5;
+        let p = -2.5;
+        if (hasSaturated) p -= 2.5;
         rulePenalties.push({ rule: 'Multiple Oil Sources', penalty: p, explanation: `Contains ${fatCount} different fat/oil sources${hasSaturated ? ' (including saturated/trans)' : ''}.` });
     }
 

@@ -32,10 +32,28 @@ export async function performOCR(formData: FormData): Promise<string> {
             return '';
         }
 
-        return detections[0].description || '';
+        const fullText = detections[0].description || '';
+        const ingredientsOnly = extractIngredients(fullText);
+
+        return ingredientsOnly;
     } catch (error: any) {
         console.error('Google Vision OCR Error Detail:', JSON.stringify(error, null, 2));
         console.error('Google Vision OCR Error Message:', error.message);
         throw new Error(`Failed to process image: ${error.message}`);
     }
+}
+
+function extractIngredients(text: string): string {
+    // Regex to find "Ingredients" optionally followed by ":"
+    // Case insensitive, looks for the keyword
+    const match = text.match(/ingredients\s*:?/i);
+
+    if (match && match.index !== undefined) {
+        // Return everything after the match
+        // match[0] includes "Ingredients" or "Ingredients:"
+        return text.substring(match.index + match[0].length).trim();
+    }
+
+    // Fallback: Return original text if keyword not found
+    return text;
 }

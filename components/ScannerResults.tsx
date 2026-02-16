@@ -71,7 +71,7 @@ export default function ScannerResults({ details, onReset }: ScannerResultsProps
                             <div>
                                 <div className="flex justify-between items-center w-full">
                                     <h4 className="font-bold text-slate-800 text-sm">{rule.rule}</h4>
-                                    <span className="text-xs font-bold text-orange-600 bg-orange-100 px-2 py-0.5 rounded-full">-{rule.penalty}</span>
+                                    <span className="text-xs font-bold text-orange-600 bg-orange-100 px-2 py-0.5 rounded-full">{rule.penalty}</span>
                                 </div>
                                 <p className="text-xs text-slate-600 mt-1">{rule.explanation}</p>
                             </div>
@@ -117,10 +117,10 @@ export default function ScannerResults({ details, onReset }: ScannerResultsProps
                                             risk.tier === 'Medium Concern' ? 'bg-amber-50 text-amber-600 border-amber-100' :
                                                 'bg-yellow-50 text-yellow-600 border-yellow-100'
                                         }`}>
-                                        -{risk.weightedPenalty} pts
+                                        {Math.round(risk.weightedPenalty)} pts
                                     </span>
-                                    {risk.weightedPenalty !== risk.penalty && (
-                                        <span className="text-[10px] text-slate-400 font-medium">Base: -{risk.penalty}</span>
+                                    {Math.round(risk.weightedPenalty) !== risk.penalty && (
+                                        <span className="text-[10px] text-slate-400 font-medium">Base: {risk.penalty}</span>
                                     )}
                                 </div>
                             </div>
