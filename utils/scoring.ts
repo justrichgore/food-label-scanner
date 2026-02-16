@@ -62,6 +62,7 @@ export interface IngredientRisk {
 export interface ScoreDetails {
     score: number;
     grade: string;
+    meaning: string;
     risks: IngredientRisk[];
     rulePenalties: RulePenalty[];
     categoryBreakdown: Record<string, number>;
@@ -291,6 +292,7 @@ export function calculateScore(text: string, frequency: Frequency = 'Weekly'): S
         return {
             score: 0,
             grade: 'F',
+            meaning: 'Avoid',
             risks: risks.sort((a, b) => b.penalty - a.penalty), // Sort roughly
             rulePenalties: [],
             categoryBreakdown
@@ -431,6 +433,7 @@ export function calculateScore(text: string, frequency: Frequency = 'Weekly'): S
     return {
         score: Math.round(score),
         grade: getGrade(score),
+        meaning: getMeaning(score),
         risks: risks.sort((a, b) => a.weightedPenalty - b.weightedPenalty), // Sort by biggest hit (most negative)
         rulePenalties,
         categoryBreakdown
@@ -443,5 +446,13 @@ function getGrade(score: number): string {
     if (score >= 60) return 'C';
     if (score >= 40) return 'D';
     return 'F';
+}
+
+function getMeaning(score: number): string {
+    if (score >= 90) return 'Excellent';
+    if (score >= 75) return 'Good';
+    if (score >= 60) return 'Acceptable';
+    if (score >= 40) return 'Poor';
+    return 'Avoid';
 }
 

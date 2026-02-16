@@ -149,13 +149,13 @@
     ],
     "match_type": "exact_or_contains",
     "position_multiplier": {
-      "top3": 2.0,
-      "top6": 1.5,
+      "top3": 1.5,
+      "top6": 1.2,
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 2.0,
-      "3to10": 1.5,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -176,13 +176,13 @@
     ],
     "match_type": "exact_or_contains",
     "position_multiplier": {
-      "top3": 2.0,
-      "top6": 1.5,
+      "top3": 1.5,
+      "top6": 1.2,
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 2.0,
-      "3to10": 1.5,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -201,13 +201,13 @@
     ],
     "match_type": "exact_or_contains",
     "position_multiplier": {
-      "top3": 2.0,
-      "top6": 1.5,
+      "top3": 1.5,
+      "top6": 1.2,
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 2.0,
-      "3to10": 1.5,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -226,13 +226,13 @@
     ],
     "match_type": "exact_or_contains",
     "position_multiplier": {
-      "top3": 2.0,
-      "top6": 1.5,
+      "top3": 1.5,
+      "top6": 1.2,
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 2.0,
-      "3to10": 1.5,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -251,13 +251,13 @@
     ],
     "match_type": "exact_or_contains",
     "position_multiplier": {
-      "top3": 2.0,
-      "top6": 1.5,
+      "top3": 1.5,
+      "top6": 1.2,
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 2.0,
-      "3to10": 1.5,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -276,13 +276,13 @@
     ],
     "match_type": "exact_or_contains",
     "position_multiplier": {
-      "top3": 2.0,
-      "top6": 1.5,
+      "top3": 1.5,
+      "top6": 1.2,
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 2.0,
-      "3to10": 1.5,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -301,13 +301,13 @@
     ],
     "match_type": "exact_or_contains",
     "position_multiplier": {
-      "top3": 2.0,
-      "top6": 1.5,
+      "top3": 1.5,
+      "top6": 1.2,
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 2.0,
-      "3to10": 1.5,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -326,13 +326,13 @@
     ],
     "match_type": "exact_or_contains",
     "position_multiplier": {
-      "top3": 2.0,
-      "top6": 1.5,
+      "top3": 1.5,
+      "top6": 1.2,
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 2.0,
-      "3to10": 1.5,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -351,13 +351,13 @@
     ],
     "match_type": "exact_or_contains",
     "position_multiplier": {
-      "top3": 2.0,
-      "top6": 1.5,
+      "top3": 1.5,
+      "top6": 1.2,
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 2.0,
-      "3to10": 1.5,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -382,13 +382,13 @@
     ],
     "match_type": "exact_or_contains",
     "position_multiplier": {
-      "top3": 2.0,
-      "top6": 1.5,
+      "top3": 1.5,
+      "top6": 1.2,
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 2.0,
-      "3to10": 1.5,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -408,13 +408,13 @@
     ],
     "match_type": "exact_or_contains",
     "position_multiplier": {
-      "top3": 2.0,
-      "top6": 1.5,
+      "top3": 1.5,
+      "top6": 1.2,
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 2.0,
-      "3to10": 1.5,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -434,13 +434,13 @@
     ],
     "match_type": "exact_or_contains",
     "position_multiplier": {
-      "top3": 2.0,
-      "top6": 1.5,
+      "top3": 1.5,
+      "top6": 1.2,
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 2.0,
-      "3to10": 1.5,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -461,13 +461,13 @@
     ],
     "match_type": "contains",
     "position_multiplier": {
-      "top3": 2.0,
-      "top6": 1.5,
+      "top3": 1.5,
+      "top6": 1.2,
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 2.0,
-      "3to10": 1.5,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -485,13 +485,13 @@
     ],
     "match_type": "exact_or_contains",
     "position_multiplier": {
-      "top3": 2.0,
-      "top6": 1.5,
+      "top3": 1.5,
+      "top6": 1.2,
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 2.0,
-      "3to10": 1.5,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -509,13 +509,13 @@
     ],
     "match_type": "exact_or_contains",
     "position_multiplier": {
-      "top3": 2.0,
-      "top6": 1.5,
+      "top3": 1.5,
+      "top6": 1.2,
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 2.0,
-      "3to10": 1.5,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -539,13 +539,13 @@
     ],
     "match_type": "exact_or_contains",
     "position_multiplier": {
-      "top3": 2.0,
-      "top6": 1.5,
+      "top3": 1.5,
+      "top6": 1.2,
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 2.0,
-      "3to10": 1.5,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -563,13 +563,13 @@
     ],
     "match_type": "exact_or_contains",
     "position_multiplier": {
-      "top3": 2.0,
-      "top6": 1.5,
+      "top3": 1.5,
+      "top6": 1.2,
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 2.0,
-      "3to10": 1.5,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -588,13 +588,13 @@
     ],
     "match_type": "exact_or_contains",
     "position_multiplier": {
-      "top3": 2.0,
-      "top6": 1.5,
+      "top3": 1.5,
+      "top6": 1.2,
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 2.0,
-      "3to10": 1.5,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -613,13 +613,13 @@
     ],
     "match_type": "exact_or_contains",
     "position_multiplier": {
-      "top3": 2.0,
-      "top6": 1.5,
+      "top3": 1.5,
+      "top6": 1.2,
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 2.0,
-      "3to10": 1.5,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -638,13 +638,13 @@
     ],
     "match_type": "exact_or_contains",
     "position_multiplier": {
-      "top3": 2.0,
-      "top6": 1.5,
+      "top3": 1.5,
+      "top6": 1.2,
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 2.0,
-      "3to10": 1.5,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -663,13 +663,13 @@
     ],
     "match_type": "exact_or_contains",
     "position_multiplier": {
-      "top3": 2.0,
-      "top6": 1.5,
+      "top3": 1.5,
+      "top6": 1.2,
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 2.0,
-      "3to10": 1.5,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -688,13 +688,13 @@
     ],
     "match_type": "exact_or_contains",
     "position_multiplier": {
-      "top3": 2.0,
-      "top6": 1.5,
+      "top3": 1.5,
+      "top6": 1.2,
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 2.0,
-      "3to10": 1.5,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -713,13 +713,13 @@
     ],
     "match_type": "exact_or_contains",
     "position_multiplier": {
-      "top3": 2.0,
-      "top6": 1.5,
+      "top3": 1.5,
+      "top6": 1.2,
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 2.0,
-      "3to10": 1.5,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -739,13 +739,13 @@
     ],
     "match_type": "exact_or_contains",
     "position_multiplier": {
-      "top3": 2.0,
-      "top6": 1.5,
+      "top3": 1.5,
+      "top6": 1.2,
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 2.0,
-      "3to10": 1.5,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -764,13 +764,13 @@
     ],
     "match_type": "exact_or_contains",
     "position_multiplier": {
-      "top3": 2.0,
-      "top6": 1.5,
+      "top3": 1.5,
+      "top6": 1.2,
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 2.0,
-      "3to10": 1.5,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -790,13 +790,13 @@
     ],
     "match_type": "exact_or_contains",
     "position_multiplier": {
-      "top3": 2.0,
-      "top6": 1.5,
+      "top3": 1.5,
+      "top6": 1.2,
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 2.0,
-      "3to10": 1.5,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -819,13 +819,13 @@
     ],
     "match_type": "exact_or_contains",
     "position_multiplier": {
-      "top3": 2.0,
-      "top6": 1.5,
+      "top3": 1.5,
+      "top6": 1.2,
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 2.0,
-      "3to10": 1.5,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -851,8 +851,8 @@
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 2.0,
-      "3to10": 1.5,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -876,8 +876,8 @@
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 2.0,
-      "3to10": 1.5,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -899,13 +899,13 @@
     ],
     "match_type": "exact_or_contains",
     "position_multiplier": {
-      "top3": 2.0,
-      "top6": 1.5,
+      "top3": 1.5,
+      "top6": 1.2,
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 2.0,
-      "3to10": 1.5,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -928,13 +928,13 @@
     ],
     "match_type": "exact_or_contains",
     "position_multiplier": {
-      "top3": 2.0,
-      "top6": 1.5,
+      "top3": 1.5,
+      "top6": 1.2,
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 2.0,
-      "3to10": 1.5,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -952,13 +952,13 @@
     ],
     "match_type": "exact_or_contains",
     "position_multiplier": {
-      "top3": 2.0,
-      "top6": 1.5,
+      "top3": 1.5,
+      "top6": 1.2,
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 2.0,
-      "3to10": 1.5,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -979,13 +979,13 @@
     ],
     "match_type": "exact_or_contains",
     "position_multiplier": {
-      "top3": 2.0,
-      "top6": 1.5,
+      "top3": 1.5,
+      "top6": 1.2,
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 2.0,
-      "3to10": 1.5,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -1003,13 +1003,13 @@
     ],
     "match_type": "exact_or_contains",
     "position_multiplier": {
-      "top3": 2.0,
-      "top6": 1.5,
+      "top3": 1.5,
+      "top6": 1.2,
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 2.0,
-      "3to10": 1.5,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -1030,13 +1030,13 @@
     ],
     "match_type": "exact_or_contains",
     "position_multiplier": {
-      "top3": 2.0,
-      "top6": 1.5,
+      "top3": 1.5,
+      "top6": 1.2,
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 2.0,
-      "3to10": 1.5,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -1060,13 +1060,13 @@
     ],
     "match_type": "exact_or_contains",
     "position_multiplier": {
-      "top3": 2.0,
-      "top6": 1.5,
+      "top3": 1.5,
+      "top6": 1.2,
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 2.0,
-      "3to10": 1.5,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -1085,13 +1085,13 @@
     ],
     "match_type": "exact_or_contains",
     "position_multiplier": {
-      "top3": 2.0,
-      "top6": 1.5,
+      "top3": 1.5,
+      "top6": 1.2,
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 2.0,
-      "3to10": 1.5,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -1112,13 +1112,13 @@
     ],
     "match_type": "exact_or_contains",
     "position_multiplier": {
-      "top3": 2.0,
-      "top6": 1.5,
+      "top3": 1.5,
+      "top6": 1.2,
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 2.0,
-      "3to10": 1.5,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -1141,13 +1141,13 @@
     ],
     "match_type": "exact_or_contains",
     "position_multiplier": {
-      "top3": 2.0,
-      "top6": 1.5,
+      "top3": 1.5,
+      "top6": 1.2,
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 2.0,
-      "3to10": 1.5,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -1174,8 +1174,8 @@
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 2.0,
-      "3to10": 1.5,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -1194,13 +1194,13 @@
     ],
     "match_type": "exact_or_contains",
     "position_multiplier": {
-      "top3": 2.0,
-      "top6": 1.5,
+      "top3": 1.5,
+      "top6": 1.2,
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 2.0,
-      "3to10": 1.5,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -1221,13 +1221,13 @@
     ],
     "match_type": "exact_or_contains",
     "position_multiplier": {
-      "top3": 2.0,
-      "top6": 1.5,
+      "top3": 1.5,
+      "top6": 1.2,
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 2.0,
-      "3to10": 1.5,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -1248,13 +1248,13 @@
     ],
     "match_type": "exact_or_contains",
     "position_multiplier": {
-      "top3": 2.0,
-      "top6": 1.5,
+      "top3": 1.5,
+      "top6": 1.2,
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 2.0,
-      "3to10": 1.5,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -1274,13 +1274,13 @@
     ],
     "match_type": "exact_or_contains",
     "position_multiplier": {
-      "top3": 2.0,
-      "top6": 1.5,
+      "top3": 1.5,
+      "top6": 1.2,
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 2.0,
-      "3to10": 1.5,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -1301,13 +1301,13 @@
     ],
     "match_type": "exact_or_contains",
     "position_multiplier": {
-      "top3": 2.0,
-      "top6": 1.5,
+      "top3": 1.5,
+      "top6": 1.2,
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 2.0,
-      "3to10": 1.5,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -1326,13 +1326,13 @@
     ],
     "match_type": "exact_or_contains",
     "position_multiplier": {
-      "top3": 2.0,
-      "top6": 1.5,
+      "top3": 1.5,
+      "top6": 1.2,
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 2.0,
-      "3to10": 1.5,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -1354,13 +1354,13 @@
     ],
     "match_type": "exact_or_contains",
     "position_multiplier": {
-      "top3": 2.0,
-      "top6": 1.5,
+      "top3": 1.5,
+      "top6": 1.2,
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 2.0,
-      "3to10": 1.5,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -1385,8 +1385,8 @@
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 2.0,
-      "3to10": 1.5,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -1411,8 +1411,8 @@
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 2.0,
-      "3to10": 1.5,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -1437,8 +1437,8 @@
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 2.0,
-      "3to10": 1.5,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -1463,8 +1463,8 @@
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 2.0,
-      "3to10": 1.5,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -1488,8 +1488,8 @@
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 2.0,
-      "3to10": 1.5,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -1507,13 +1507,13 @@
     ],
     "match_type": "exact_or_contains",
     "position_multiplier": {
-      "top3": 1.0,
-      "top6": 1.0,
+      "top3": 1.5,
+      "top6": 1.2,
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 1.0,
-      "3to10": 1.0,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -1532,13 +1532,13 @@
     ],
     "match_type": "exact_or_contains",
     "position_multiplier": {
-      "top3": 1.0,
-      "top6": 1.0,
+      "top3": 1.5,
+      "top6": 1.2,
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 1.0,
-      "3to10": 1.0,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -1559,13 +1559,13 @@
     ],
     "match_type": "exact_or_contains",
     "position_multiplier": {
-      "top3": 1.0,
-      "top6": 1.0,
+      "top3": 1.5,
+      "top6": 1.2,
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 1.0,
-      "3to10": 1.0,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -1583,13 +1583,13 @@
     ],
     "match_type": "exact_or_contains",
     "position_multiplier": {
-      "top3": 1.0,
-      "top6": 1.0,
+      "top3": 1.5,
+      "top6": 1.2,
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 1.0,
-      "3to10": 1.0,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -1607,13 +1607,13 @@
     ],
     "match_type": "exact_or_contains",
     "position_multiplier": {
-      "top3": 1.0,
-      "top6": 1.0,
+      "top3": 1.5,
+      "top6": 1.2,
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 1.0,
-      "3to10": 1.0,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -1631,13 +1631,13 @@
     ],
     "match_type": "exact_or_contains",
     "position_multiplier": {
-      "top3": 1.0,
-      "top6": 1.0,
+      "top3": 1.5,
+      "top6": 1.2,
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 1.0,
-      "3to10": 1.0,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -1655,13 +1655,13 @@
     ],
     "match_type": "exact_or_contains",
     "position_multiplier": {
-      "top3": 1.0,
-      "top6": 1.0,
+      "top3": 1.5,
+      "top6": 1.2,
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 1.0,
-      "3to10": 1.0,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -1679,13 +1679,13 @@
     ],
     "match_type": "exact_or_contains",
     "position_multiplier": {
-      "top3": 1.0,
-      "top6": 1.0,
+      "top3": 1.5,
+      "top6": 1.2,
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 1.0,
-      "3to10": 1.0,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -1705,13 +1705,13 @@
     ],
     "match_type": "exact_or_contains",
     "position_multiplier": {
-      "top3": 1.0,
-      "top6": 1.0,
+      "top3": 1.5,
+      "top6": 1.2,
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 1.0,
-      "3to10": 1.0,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -1730,13 +1730,13 @@
     ],
     "match_type": "exact_or_contains",
     "position_multiplier": {
-      "top3": 1.0,
-      "top6": 1.0,
+      "top3": 1.5,
+      "top6": 1.2,
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 1.0,
-      "3to10": 1.0,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -1760,13 +1760,13 @@
     ],
     "match_type": "exact_or_contains",
     "position_multiplier": {
-      "top3": 1.0,
-      "top6": 1.0,
+      "top3": 1.5,
+      "top6": 1.2,
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 1.0,
-      "3to10": 1.0,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   },
@@ -1786,13 +1786,13 @@
     ],
     "match_type": "exact_or_contains",
     "position_multiplier": {
-      "top3": 1.0,
-      "top6": 1.0,
+      "top3": 1.5,
+      "top6": 1.2,
       "rest": 1.0
     },
     "percent_multiplier": {
-      "gt10": 1.0,
-      "3to10": 1.0,
+      "gt10": 1.5,
+      "3to10": 1.2,
       "lt3": 1.0
     }
   }

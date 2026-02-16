@@ -33,7 +33,10 @@ export default function ScannerResults({ details, onReset }: ScannerResultsProps
                 <div className="p-8 text-center relative z-10 flex flex-col items-center">
                     <div className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-6">Food Safety Score</div>
                     <div className="flex items-center justify-center gap-8">
-                        <div className={`text-9xl font-black ${gradeColor} drop-shadow-sm leading-none`}>{grade}</div>
+                        <div className="flex flex-col items-center">
+                            <div className={`text-9xl font-black ${gradeColor} drop-shadow-sm leading-none`}>{grade}</div>
+                            <div className={`text-lg font-bold ${gradeColor} mt-2 uppercase tracking-wide`}>{details.meaning}</div>
+                        </div>
                         <div className="text-left flex flex-col justify-center h-full pt-4">
                             <div className="text-4xl font-bold text-slate-800 leading-none">{Math.round(score)}</div>
                             <div className="text-sm text-slate-400 font-medium mt-1">out of 100</div>
@@ -110,9 +113,9 @@ export default function ScannerResults({ details, onReset }: ScannerResultsProps
                                 </div>
                                 <div className="flex flex-col items-end gap-1">
                                     <span className={`px-2.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wide border ${risk.tier === 'Auto-Fail' ? 'bg-red-50 text-red-600 border-red-100' :
-                                            risk.tier === 'High Concern' ? 'bg-orange-50 text-orange-600 border-orange-100' :
-                                                risk.tier === 'Medium Concern' ? 'bg-amber-50 text-amber-600 border-amber-100' :
-                                                    'bg-yellow-50 text-yellow-600 border-yellow-100'
+                                        risk.tier === 'High Concern' ? 'bg-orange-50 text-orange-600 border-orange-100' :
+                                            risk.tier === 'Medium Concern' ? 'bg-amber-50 text-amber-600 border-amber-100' :
+                                                'bg-yellow-50 text-yellow-600 border-yellow-100'
                                         }`}>
                                         -{risk.weightedPenalty} pts
                                     </span>
