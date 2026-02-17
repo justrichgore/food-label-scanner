@@ -1,7 +1,8 @@
 'use client';
 
 import { Trash2 } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
 import Navbar from '@/components/Navbar';
 import { createClient } from '@/utils/supabase/client';
 import { ScoreDetails, calculateScore, Frequency } from '@/utils/scoring';
@@ -19,7 +20,9 @@ interface ScanRecord {
     name?: string;
 }
 
-export default function HistoryPage() {
+function HistoryContent() {
+    const searchParams = useSearchParams();
+    const initialId = searchParams.get('id');
     const [scans, setScans] = useState<ScanRecord[]>([]);
     const [loading, setLoading] = useState(true);
     const [selectedScan, setSelectedScan] = useState<ScanRecord | null>(null);
@@ -43,6 +46,15 @@ export default function HistoryPage() {
 
         fetchScans();
     }, []);
+
+    useEffect(() => {
+        if (scans.length > 0 && initialId) {
+            const found = scans.find(s => s.id === initialId);
+            if (found) {
+                setSelectedScan(found);
+            }
+        }
+    }, [scans, initialId]);
 
     const handleDelete = async (id: string) => {
         if (!confirm('Are you sure you want to delete this scan?')) return;
@@ -232,5 +244,13 @@ export default function HistoryPage() {
                 </div>
             </div>
         </main>
+    );
+}
+
+export default function HistoryPage() {
+    return (
+        <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-emerald-500"></div></div>}>
+            <HistoryContent />
+        </Suspense>
     );
 }
