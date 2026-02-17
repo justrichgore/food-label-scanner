@@ -7,7 +7,7 @@ import { performOCR } from '@/app/actions/ocr';
 import Navbar from '@/components/Navbar';
 import { calculateScore, ScoreDetails, Frequency } from '@/utils/scoring';
 import { saveScan } from '@/utils/supabase-legacy';
-import RecentScans from '@/components/RecentScans';
+
 
 export default function Home() {
     const [isProcessing, setIsProcessing] = useState(false);
@@ -90,7 +90,7 @@ export default function Home() {
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-start">
 
                     {/* LEFT COLUMN: Scanner / Main Action */}
-                    <div className="md:col-span-7 lg:col-span-8 space-y-8">
+                    <div className="md:col-span-12 space-y-8">
                         {/* Greeting / Intro (Mobile & Desktop if state allows) */}
                         {!scoreData && !isProcessing && (
                             <div className="space-y-6 text-center md:text-left animate-in fade-in slide-in-from-bottom-4 duration-700">
@@ -165,15 +165,7 @@ export default function Home() {
                         </div>
                     </div>
 
-                    {/* RIGHT COLUMN: Recent Scans (Desktop Only) */}
-                    <div className="hidden md:block col-span-5 lg:col-span-4 space-y-6">
-                        <div className="sticky top-24">
-                            {/* Add import for RecentScans at the top of the file! */}
-                            {/* Using lazy load or direct import? Direct import is better for client comps */}
-                            {/* Note: I will need to add the import statement separately as this is inside the return */}
-                            <RecentScans />
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>

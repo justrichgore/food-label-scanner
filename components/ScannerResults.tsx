@@ -1,5 +1,5 @@
-import { ScoreDetails, IngredientRisk } from '@/utils/scoring';
-import { AlertTriangle, CheckCircle, XCircle, Info } from 'lucide-react';
+import { ScoreDetails } from '@/utils/scoring';
+import { AlertTriangle, CheckCircle } from 'lucide-react';
 
 interface ScannerResultsProps {
     details: ScoreDetails;
@@ -17,12 +17,7 @@ export default function ScannerResults({ details, onReset }: ScannerResultsProps
                     grade === 'D' ? 'text-orange-600' :
                         'text-red-600';
 
-    const gradeBg =
-        grade === 'A' ? 'bg-green-100' :
-            grade === 'B' ? 'bg-lime-100' :
-                grade === 'C' ? 'bg-yellow-100' :
-                    grade === 'D' ? 'bg-orange-100' :
-                        'bg-red-100';
+
 
     return (
         <div className="w-full max-w-2xl mx-auto space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">

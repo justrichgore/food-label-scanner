@@ -96,113 +96,139 @@ export default function HistoryPage() {
     // Handle initial selection if needed, or just default to null
 
     return (
-        <main className="min-h-screen pb-20 px-6 pt-12 max-w-md mx-auto relative z-10">
+        <main className="min-h-screen pb-20 pt-8 px-6 w-full relative z-10 md:overflow-hidden md:h-screen md:pb-0">
             <Navbar />
 
-            {/* Selected Scan View */}
-            {selectedScan ? (
-                <div className="mb-12 animate-in fade-in slide-in-from-top-4 duration-500">
-                    <div className="flex items-center justify-between mb-4">
-                        <h2 className="text-xl font-bold text-slate-800">{selectedScan.name || 'Scan Details'}</h2>
-                        <button
-                            onClick={() => setSelectedScan(null)}
-                            className="text-sm text-slate-500 hover:text-emerald-600 px-3 py-1 rounded-full hover:bg-emerald-50 transition-colors"
-                        >
-                            Close
-                        </button>
-                    </div>
+            {/* Desktop: Split View Container */}
+            <div className="max-w-md mx-auto md:max-w-none md:mx-0 h-full flex flex-col md:flex-row gap-6 md:gap-0">
 
-                    {/* Frequency Settings Pill */}
-                    <div className="glass-card p-2 rounded-full flex items-center justify-between pl-6 pr-2 mb-6">
-                        <span className="text-sm font-semibold text-slate-600">Consumption:</span>
-                        <div className="flex gap-1">
-                            {(['Daily', 'Weekly', 'Rare'] as Frequency[]).map((freq) => (
-                                <button
-                                    key={freq}
-                                    onClick={() => handleFrequencyChange(freq)}
-                                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${selectedScan.frequency === freq
-                                        ? 'bg-slate-900 text-white shadow-md'
-                                        : 'text-slate-500 hover:text-slate-900 hover:bg-white/50'
+                {/* LIST COLUMN (Left on desktop, full on mobile) */}
+                <div className={`flex flex-col h-full md:w-1/3 lg:w-1/4 md:border-r md:border-slate-200 md:pr-6 md:overflow-y-auto w-full ${selectedScan ? 'hidden md:flex' : 'flex'}`}>
+                    <h1 className="text-2xl font-bold text-slate-900 mb-6 sticky top-0 bg-slate-50 py-2 z-10">Scan History</h1>
+
+                    {loading ? (
+                        <div className="flex justify-center py-10">
+                            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-emerald-500"></div>
+                        </div>
+                    ) : scans.length === 0 ? (
+                        <div className="text-center py-10 text-slate-500">
+                            <p>No scans yet.</p>
+                            <Link href="/" className="text-emerald-500 font-medium mt-2 inline-block">
+                                Start a new scan
+                            </Link>
+                        </div>
+                    ) : (
+                        <div className="space-y-3 pb-20 md:pb-0">
+                            {scans.map((scan) => (
+                                <div
+                                    key={scan.id}
+                                    onClick={() => setSelectedScan(scan)}
+                                    className={`p-4 rounded-xl flex justify-between items-center transition-all cursor-pointer border shadow-sm ${selectedScan?.id === scan.id
+                                        ? 'bg-emerald-900 text-white border-emerald-900 ring-2 ring-emerald-500/20'
+                                        : 'bg-white hover:bg-slate-50 border-slate-100 hover:border-slate-200'
                                         }`}
                                 >
-                                    {freq}
-                                </button>
+                                    <div className="min-w-0 flex-1 mr-3">
+                                        <div className={`font-semibold mb-0.5 truncate ${selectedScan?.id === scan.id ? 'text-white' : 'text-slate-800'}`}>
+                                            {scan.name || 'Untitled Scan'}
+                                        </div>
+                                        <div className={`text-xs ${selectedScan?.id === scan.id ? 'text-emerald-200' : 'text-slate-400'}`}>
+                                            {new Date(scan.created_at).toLocaleDateString()}
+                                        </div>
+                                    </div>
+                                    <div className="flex items-center gap-3">
+                                        <span className={`text-xs font-bold px-2 py-1 rounded-md ${scan.grade === 'A' ? (selectedScan?.id === scan.id ? 'bg-white/20 text-white' : 'bg-emerald-100 text-emerald-700') :
+                                            scan.grade === 'B' ? (selectedScan?.id === scan.id ? 'bg-white/20 text-white' : 'bg-teal-100 text-teal-700') :
+                                                scan.grade === 'C' ? (selectedScan?.id === scan.id ? 'bg-white/20 text-white' : 'bg-yellow-100 text-yellow-700') :
+                                                    (selectedScan?.id === scan.id ? 'bg-white/20 text-white' : 'bg-red-100 text-red-700')
+                                            }`}>
+                                            {scan.grade}
+                                        </span>
+                                        <button
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                handleDelete(scan.id);
+                                            }}
+                                            className={`p-2 rounded-full transition-colors ${selectedScan?.id === scan.id ? 'text-emerald-300 hover:text-white hover:bg-white/20' : 'text-slate-300 hover:text-red-500 hover:bg-red-50'}`}
+                                            title="Delete Scan"
+                                        >
+                                            <Trash2 className="w-4 h-4" />
+                                        </button>
+                                    </div>
+                                </div>
                             ))}
                         </div>
-                    </div>
-
-                    <ScannerResults details={selectedScan.score_details} onReset={() => setSelectedScan(null)} />
-                    <div className="my-8 border-b border-slate-200"></div>
+                    )}
                 </div>
-            ) : (
-                <h1 className="text-2xl font-bold text-slate-800 mb-6">Scan History</h1>
-            )}
 
-            {
-                loading ? (
-                    <div className="flex justify-center py-10">
-                        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-emerald-500"></div>
-                    </div>
-                ) : scans.length === 0 ? (
-                    <div className="text-center py-10 text-slate-500">
-                        <p>No scans yet.</p>
-                        <Link href="/" className="text-emerald-500 font-medium mt-2 inline-block">
-                            Start a new scan
-                        </Link>
-                    </div>
-                ) : (
-                    <div className="space-y-4">
-                        {/* Header for list if selected */}
-                        {selectedScan && (
-                            <h3 className="text-lg font-semibold text-slate-700 mb-2">Previous Scans</h3>
-                        )}
+                {/* DETAILS COLUMN (Right on desktop, full overlay on mobile) */}
+                <div className={`flex-1 md:pl-8 md:overflow-y-auto h-full ${selectedScan ? 'block' : 'hidden md:flex md:items-center md:justify-center'}`}>
+                    {selectedScan ? (
+                        <div className="animate-in fade-in slide-in-from-right-4 duration-500 md:max-w-3xl md:mx-auto pb-20 md:pb-10">
+                            {/* Mobile Back Button / Header */}
+                            <div className="flex items-center gap-4 mb-6 md:hidden">
+                                <button
+                                    onClick={() => setSelectedScan(null)}
+                                    className="p-2 -ml-2 text-slate-500 hover:text-slate-900"
+                                >
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6" /></svg>
+                                </button>
+                                <span className="font-bold text-lg">Details</span>
+                            </div>
 
-                        {scans.map((scan) => (
-                            <div
-                                key={scan.id}
-                                onClick={() => {
-                                    setSelectedScan(scan);
-                                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                                }}
-                                className={`glass-card p-4 rounded-xl flex justify-between items-center transition-all cursor-pointer border shadow-sm ${selectedScan?.id === scan.id ? 'ring-2 ring-emerald-500 bg-emerald-50/50 border-emerald-200' : 'hover:bg-white/60 border-white/60'}`}
-                            >
+                            {/* Desktop Header */}
+                            <div className="hidden md:flex items-center justify-between mb-8 pb-6 border-b border-slate-100">
                                 <div>
-                                    <div className="font-semibold text-slate-800 mb-0.5">
-                                        {scan.name || 'Untitled Scan'}
-                                    </div>
-                                    <div className="text-xs text-slate-400 mb-1">
-                                        {new Date(scan.created_at).toLocaleDateString()} at {new Date(scan.created_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-                                    </div>
-                                    <div className="flex items-center gap-2">
-                                        <span className={`font-bold text-sm ${scan.grade === 'A' ? 'text-emerald-500' :
-                                            scan.grade === 'B' ? 'text-teal-500' :
-                                                scan.grade === 'C' ? 'text-yellow-500' :
-                                                    scan.grade === 'D' ? 'text-orange-500' : 'text-red-500'
-                                            }`}>
-                                            Grade {scan.grade}
-                                        </span>
-                                    </div>
+                                    <h2 className="text-3xl font-bold text-slate-900">{selectedScan.name || 'Untitled Scan'}</h2>
+                                    <p className="text-slate-500 mt-1">Scanned on {new Date(selectedScan.created_at).toLocaleDateString()} at {new Date(selectedScan.created_at).toLocaleTimeString()}</p>
                                 </div>
-                                <div className="flex items-center gap-3">
-                                    <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold ${selectedScan?.id === scan.id ? 'bg-emerald-500 text-white shadow-lg' : 'bg-slate-100 text-slate-600'}`}>
-                                        {scan.score_details.score}
-                                    </div>
-                                    <button
-                                        onClick={(e) => {
-                                            e.stopPropagation();
-                                            handleDelete(scan.id);
-                                        }}
-                                        className="p-2 text-slate-400 hover:text-red-500 hover:bg-red-50 rounded-full transition-colors"
-                                        title="Delete Scan"
-                                    >
-                                        <Trash2 className="w-5 h-5" />
-                                    </button>
+                                <div className="glass-card p-1.5 rounded-full flex gap-1">
+                                    {(['Daily', 'Weekly', 'Rare'] as Frequency[]).map((freq) => (
+                                        <button
+                                            key={freq}
+                                            onClick={() => handleFrequencyChange(freq)}
+                                            className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${selectedScan.frequency === freq
+                                                ? 'bg-slate-900 text-white shadow-md'
+                                                : 'text-slate-500 hover:text-slate-900 hover:bg-white/50'
+                                                }`}
+                                        >
+                                            {freq}
+                                        </button>
+                                    ))}
                                 </div>
                             </div>
-                        ))}
-                    </div>
-                )
-            }
-        </main >
+
+                            {/* Mobile Frequency - Keep separate for layout */}
+                            <div className="glass-card p-1.5 rounded-full flex gap-1 mb-6 md:hidden overflow-x-auto">
+                                {(['Daily', 'Weekly', 'Rare'] as Frequency[]).map((freq) => (
+                                    <button
+                                        key={freq}
+                                        onClick={() => handleFrequencyChange(freq)} // Note: You need to make handleFrequencyChange update state locally too if not already
+                                        className={`flex-1 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap ${selectedScan.frequency === freq
+                                            ? 'bg-slate-900 text-white shadow-md'
+                                            : 'text-slate-500 hover:text-slate-900 hover:bg-white/50'
+                                            }`}
+                                    >
+                                        {freq}
+                                    </button>
+                                ))}
+                            </div>
+
+                            {/* Reuse ScannerResults but potentially wrap it to look better full width */}
+                            <div className="bg-white rounded-3xl md:p-8 md:shadow-sm md:border md:border-slate-100">
+                                <ScannerResults details={selectedScan.score_details} onReset={() => { }} />
+                            </div>
+                        </div>
+                    ) : (
+                        <div className="text-center text-slate-400">
+                            <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">
+                                👈
+                            </div>
+                            <p className="text-lg font-medium">Select a scan to view details</p>
+                        </div>
+                    )}
+                </div>
+            </div>
+        </main>
     );
 }

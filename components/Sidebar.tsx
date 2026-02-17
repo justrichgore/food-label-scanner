@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, History, User, ScanLine, LogOut } from 'lucide-react';
+import { History, ScanLine } from 'lucide-react';
 
 export default function Sidebar() {
     const pathname = usePathname();
@@ -36,8 +36,8 @@ export default function Sidebar() {
                             key={item.name}
                             href={item.href}
                             className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 group ${isActive
-                                    ? 'bg-slate-900 text-white shadow-lg shadow-slate-900/20'
-                                    : 'text-slate-500 hover:bg-slate-50 hover:text-slate-900'
+                                ? 'bg-slate-900 text-white shadow-lg shadow-slate-900/20'
+                                : 'text-slate-500 hover:bg-slate-50 hover:text-slate-900'
                                 }`}
                         >
                             <Icon size={20} className={`${isActive ? 'text-emerald-400' : 'text-slate-400 group-hover:text-emerald-500'} transition-colors`} />
