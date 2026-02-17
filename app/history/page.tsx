@@ -103,62 +103,64 @@ export default function HistoryPage() {
             <div className="max-w-md mx-auto md:max-w-none md:mx-0 h-full flex flex-col md:flex-row gap-6 md:gap-0">
 
                 {/* LIST COLUMN (Left on desktop, full on mobile) */}
-                <div className={`flex flex-col h-full md:w-1/3 lg:w-1/4 md:border-r md:border-slate-200 md:pr-6 md:overflow-y-auto w-full ${selectedScan ? 'hidden md:flex' : 'flex'}`}>
-                    <h1 className="text-2xl font-bold text-slate-900 mb-6 sticky top-0 bg-slate-50 py-2 z-10">Scan History</h1>
+                <div className={`flex flex-col h-full md:w-1/3 lg:w-1/4 md:border-r md:border-slate-200 md:pr-6 w-full ${selectedScan ? 'hidden md:flex' : 'flex'}`}>
+                    <h1 className="text-2xl font-bold text-slate-900 mb-6 shrink-0">Scan History</h1>
+                    <div className="flex-1 overflow-y-auto min-h-0 -mr-4 pr-4">
 
-                    {loading ? (
-                        <div className="flex justify-center py-10">
-                            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-emerald-500"></div>
-                        </div>
-                    ) : scans.length === 0 ? (
-                        <div className="text-center py-10 text-slate-500">
-                            <p>No scans yet.</p>
-                            <Link href="/" className="text-emerald-500 font-medium mt-2 inline-block">
-                                Start a new scan
-                            </Link>
-                        </div>
-                    ) : (
-                        <div className="space-y-3 pb-20 md:pb-0">
-                            {scans.map((scan) => (
-                                <div
-                                    key={scan.id}
-                                    onClick={() => setSelectedScan(scan)}
-                                    className={`p-4 rounded-xl flex justify-between items-center transition-all cursor-pointer border shadow-sm ${selectedScan?.id === scan.id
-                                        ? 'bg-emerald-900 text-white border-emerald-900 ring-2 ring-emerald-500/20'
-                                        : 'bg-white hover:bg-slate-50 border-slate-100 hover:border-slate-200'
-                                        }`}
-                                >
-                                    <div className="min-w-0 flex-1 mr-3">
-                                        <div className={`font-semibold mb-0.5 truncate ${selectedScan?.id === scan.id ? 'text-white' : 'text-slate-800'}`}>
-                                            {scan.name || 'Untitled Scan'}
+                        {loading ? (
+                            <div className="flex justify-center py-10">
+                                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-emerald-500"></div>
+                            </div>
+                        ) : scans.length === 0 ? (
+                            <div className="text-center py-10 text-slate-500">
+                                <p>No scans yet.</p>
+                                <Link href="/" className="text-emerald-500 font-medium mt-2 inline-block">
+                                    Start a new scan
+                                </Link>
+                            </div>
+                        ) : (
+                            <div className="space-y-3 pb-20 md:pb-0">
+                                {scans.map((scan) => (
+                                    <div
+                                        key={scan.id}
+                                        onClick={() => setSelectedScan(scan)}
+                                        className={`p-4 rounded-xl flex justify-between items-center transition-all cursor-pointer border shadow-sm ${selectedScan?.id === scan.id
+                                            ? 'bg-emerald-900 text-white border-emerald-900 ring-2 ring-emerald-500/20'
+                                            : 'bg-white hover:bg-slate-50 border-slate-100 hover:border-slate-200'
+                                            }`}
+                                    >
+                                        <div className="min-w-0 flex-1 mr-3">
+                                            <div className={`font-semibold mb-0.5 truncate ${selectedScan?.id === scan.id ? 'text-white' : 'text-slate-800'}`}>
+                                                {scan.name || 'Untitled Scan'}
+                                            </div>
+                                            <div className={`text-xs ${selectedScan?.id === scan.id ? 'text-emerald-200' : 'text-slate-400'}`}>
+                                                {new Date(scan.created_at).toLocaleDateString()}
+                                            </div>
                                         </div>
-                                        <div className={`text-xs ${selectedScan?.id === scan.id ? 'text-emerald-200' : 'text-slate-400'}`}>
-                                            {new Date(scan.created_at).toLocaleDateString()}
+                                        <div className="flex items-center gap-3">
+                                            <span className={`text-xs font-bold px-2 py-1 rounded-md ${scan.grade === 'A' ? (selectedScan?.id === scan.id ? 'bg-white/20 text-white' : 'bg-emerald-100 text-emerald-700') :
+                                                scan.grade === 'B' ? (selectedScan?.id === scan.id ? 'bg-white/20 text-white' : 'bg-teal-100 text-teal-700') :
+                                                    scan.grade === 'C' ? (selectedScan?.id === scan.id ? 'bg-white/20 text-white' : 'bg-yellow-100 text-yellow-700') :
+                                                        (selectedScan?.id === scan.id ? 'bg-white/20 text-white' : 'bg-red-100 text-red-700')
+                                                }`}>
+                                                {scan.grade}
+                                            </span>
+                                            <button
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    handleDelete(scan.id);
+                                                }}
+                                                className={`p-2 rounded-full transition-colors ${selectedScan?.id === scan.id ? 'text-emerald-300 hover:text-white hover:bg-white/20' : 'text-slate-300 hover:text-red-500 hover:bg-red-50'}`}
+                                                title="Delete Scan"
+                                            >
+                                                <Trash2 className="w-4 h-4" />
+                                            </button>
                                         </div>
                                     </div>
-                                    <div className="flex items-center gap-3">
-                                        <span className={`text-xs font-bold px-2 py-1 rounded-md ${scan.grade === 'A' ? (selectedScan?.id === scan.id ? 'bg-white/20 text-white' : 'bg-emerald-100 text-emerald-700') :
-                                            scan.grade === 'B' ? (selectedScan?.id === scan.id ? 'bg-white/20 text-white' : 'bg-teal-100 text-teal-700') :
-                                                scan.grade === 'C' ? (selectedScan?.id === scan.id ? 'bg-white/20 text-white' : 'bg-yellow-100 text-yellow-700') :
-                                                    (selectedScan?.id === scan.id ? 'bg-white/20 text-white' : 'bg-red-100 text-red-700')
-                                            }`}>
-                                            {scan.grade}
-                                        </span>
-                                        <button
-                                            onClick={(e) => {
-                                                e.stopPropagation();
-                                                handleDelete(scan.id);
-                                            }}
-                                            className={`p-2 rounded-full transition-colors ${selectedScan?.id === scan.id ? 'text-emerald-300 hover:text-white hover:bg-white/20' : 'text-slate-300 hover:text-red-500 hover:bg-red-50'}`}
-                                            title="Delete Scan"
-                                        >
-                                            <Trash2 className="w-4 h-4" />
-                                        </button>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    )}
+                                ))}
+                            </div>
+                        )}
+                    </div>
                 </div>
 
                 {/* DETAILS COLUMN (Right on desktop, full overlay on mobile) */}
