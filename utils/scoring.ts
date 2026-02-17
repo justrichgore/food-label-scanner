@@ -208,10 +208,23 @@ function matchEntry(entry: DictionaryEntry, token: IngredientToken): boolean {
             // If token is very short, prefer exact. If long, allow contains.
             // But the rule says "pragmatic default".
             // Let's use includes, but maybe check word boundaries?
-            if (token.norm.includes(normName)) return true;
+            // Improved contains check:
+            const idx = token.norm.indexOf(normName);
+            if (idx !== -1) {
+                // Check if it's a negative match (e.g. "sugar-free")
+                if (isNegativeMatch(token.norm, idx, normName.length)) return false;
+                return true;
+            }
         }
     }
 
+    return false;
+}
+
+function isNegativeMatch(text: string, matchIndex: number, matchLength: number): boolean {
+    // Check if what follows is "-free"
+    const following = text.slice(matchIndex + matchLength);
+    if (following.startsWith('-free')) return true;
     return false;
 }
 
@@ -261,7 +274,7 @@ export function calculateScore(text: string, frequency: Frequency = 'Weekly'): S
 
                 risks.push({
                     name: entry.names[0],
-                    match: token.raw.length > 100 ? entry.names[0] : token.raw,
+                    match: formatMatchDisplay(token.raw, entry.names[0]),
                     tier: entry.tier,
                     penalty: entry.penalty, // Original base penalty for reference
                     weightedPenalty: p, // The actual hit
@@ -459,5 +472,29 @@ function getMeaning(score: number): string {
     if (score >= 60) return 'Acceptable';
     if (score >= 40) return 'Poor';
     return 'Avoid';
+}
+
+function formatMatchDisplay(raw: string, matchName: string): string {
+    if (raw.length <= 60) return raw;
+
+    // Find the match in raw text (case insensitive)
+    const lowerRaw = raw.toLowerCase();
+    const lowerName = matchName.toLowerCase();
+    const index = lowerRaw.indexOf(lowerName);
+
+    if (index === -1) {
+        // Fallback: name + context hint
+        return `${matchName} (detected in text)`;
+    }
+
+    // Extract context around match
+    const start = Math.max(0, index - 15);
+    const end = Math.min(raw.length, index + matchName.length + 15);
+    let snippet = raw.slice(start, end);
+
+    if (start > 0) snippet = '...' + snippet;
+    if (end < raw.length) snippet = snippet + '...';
+
+    return snippet;
 }
 
