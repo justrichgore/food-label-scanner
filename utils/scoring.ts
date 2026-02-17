@@ -101,7 +101,10 @@ export function parseIngredients(text: string): IngredientToken[] {
         if (char === '(') parenDepth++;
         if (char === ')') parenDepth--;
 
-        if (char === ',' && parenDepth === 0) {
+        const isDecimal = char === '.' && i > 0 && i < text.length - 1 && /\d/.test(text[i - 1]) && /\d/.test(text[i + 1]);
+        const isDelimiter = (char === ',' || (char === '.' && !isDecimal) || char === ';') && parenDepth === 0;
+
+        if (isDelimiter) {
             if (currentToken.trim()) {
                 tokens.push(createToken(currentToken, position));
                 position++;
@@ -130,7 +133,9 @@ export function parseIngredients(text: string): IngredientToken[] {
             // Split sub-ingredients
             const subText = match[1];
             // Recursively parse, but force position to match parent
-            // We can reuse the simple split logic but override position
+            // We can reuse the logic but simple split for now to match strict logic above might be overkill inside parens
+            // Actually, we should probably respect the dot rule inside parens too if we want to be consistent,
+            // but usually inside parens it's comma separated.
             const subParts = subText.split(',').map(s => s.trim()).filter(s => s);
             subParts.forEach(sub => {
                 // Check if sub looks like a percentage only "12%", ignore it as an ingredient
@@ -256,7 +261,7 @@ export function calculateScore(text: string, frequency: Frequency = 'Weekly'): S
 
                 risks.push({
                     name: entry.names[0],
-                    match: token.raw,
+                    match: token.raw.length > 100 ? entry.names[0] : token.raw,
                     tier: entry.tier,
                     penalty: entry.penalty, // Original base penalty for reference
                     weightedPenalty: p, // The actual hit
