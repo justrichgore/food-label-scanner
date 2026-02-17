@@ -48,28 +48,26 @@ export default function Sidebar() {
                 })}
             </nav>
 
-            </nav>
-
             <SidebarRecentActivity />
 
-            {/* User / Footer Area */ }
-    <div className="mt-auto pt-6 border-t border-slate-100">
-        <div className="p-4 rounded-xl bg-gradient-to-br from-emerald-50 to-teal-50 border border-emerald-100">
-            <div className="flex items-center gap-3 mb-3">
-                <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-emerald-600 font-bold shadow-sm">
-                    U
-                </div>
-                <div>
-                    <p className="text-sm font-bold text-slate-800">User Account</p>
-                    <p className="text-xs text-slate-500">Free Plan</p>
+            {/* User / Footer Area */}
+            <div className="mt-auto pt-6 border-t border-slate-100">
+                <div className="p-4 rounded-xl bg-gradient-to-br from-emerald-50 to-teal-50 border border-emerald-100">
+                    <div className="flex items-center gap-3 mb-3">
+                        <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-emerald-600 font-bold shadow-sm">
+                            U
+                        </div>
+                        <div>
+                            <p className="text-sm font-bold text-slate-800">User Account</p>
+                            <p className="text-xs text-slate-500">Free Plan</p>
+                        </div>
+                    </div>
+                    {/* Placeholder for sign out or upgrade */}
+                    <button className="w-full text-xs font-medium text-emerald-600 hover:text-emerald-700 hover:underline text-center">
+                        Upgrade to Pro
+                    </button>
                 </div>
             </div>
-            {/* Placeholder for sign out or upgrade */}
-            <button className="w-full text-xs font-medium text-emerald-600 hover:text-emerald-700 hover:underline text-center">
-                Upgrade to Pro
-            </button>
-        </div>
-    </div>
         </aside >
     );
 }
