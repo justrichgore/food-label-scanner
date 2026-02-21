@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import ImageUploader from '@/components/ImageUploader';
+import ImageCropper from '@/components/ImageCropper';
 import ScannerResults from '@/components/ScannerResults';
 import { performOCR } from '@/app/actions/ocr';
 import Navbar from '@/components/Navbar';
@@ -15,20 +16,25 @@ export default function Home() {
     const [scoreData, setScoreData] = useState<ScoreDetails | null>(null);
     const [frequency, setFrequency] = useState<Frequency>('Weekly');
     const [productName, setProductName] = useState('');
+    const [pendingCropImage, setPendingCropImage] = useState<File | null>(null);
 
-    const handleImageSelect = async (file: File) => {
+    const handleImageSelect = (file: File) => {
         if (!productName.trim()) {
             alert('Please enter a product name before scanning.');
             return;
         }
+        setPendingCropImage(file);
+    };
 
+    const handleCropComplete = async (croppedBlob: Blob) => {
+        setPendingCropImage(null);
         setIsProcessing(true);
         setExtractedText(null);
         setScoreData(null);
         try {
             // 1. Upload/Process Image (Server-Side)
             const formData = new FormData();
-            formData.append('file', file);
+            formData.append('file', croppedBlob, pendingCropImage?.name || 'cropped-image.jpg');
 
             const text = await performOCR(formData);
 
@@ -64,6 +70,7 @@ export default function Home() {
         setScoreData(null);
         setFrequency('Weekly');
         setProductName('');
+        setPendingCropImage(null);
     };
 
     // Recalculate score if frequency changes
@@ -112,8 +119,17 @@ export default function Home() {
 
                         {/* Main Action Area */}
                         <div className="relative">
+                            {/* Cropper overlay if an image is pending */}
+                            {pendingCropImage && !scoreData && (
+                                <ImageCropper
+                                    imageFile={pendingCropImage}
+                                    onCropComplete={handleCropComplete}
+                                    onCancel={() => setPendingCropImage(null)}
+                                />
+                            )}
+
                             {/* Uploader and Input */}
-                            {!scoreData && (
+                            {!scoreData && !pendingCropImage && (
                                 <div className="space-y-6">
                                     <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
                                         <label className="block text-sm font-medium text-slate-700 mb-2">Product Name</label>
